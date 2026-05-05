@@ -1,201 +1,663 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neko-Void | Void Linux Respin</title>
-    <link rel="icon" type="image/x-icon" href="https://huggingface.co/arepaconcafe/neko-base/resolve/main/logo.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body class="lang-en">
-
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" alt="Lightbox Image">
-    </div>
-
-    <nav class="navbar">
-        <div class="navbar-left">
-            <a href="#inicio" class="navbar-brand">
-                <img src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/logo.png" alt="Logo Neko-Void" class="navbar-logo-img">
-                <span>NEKO_VOID</span>
-            </a>
-            <div id="version-tag" class="version-badge">
-                <span class="en">Loading version...</span><span class="es">Cargando versión...</span>
-            </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Neko-Void | Void Linux Respin</title>
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://huggingface.co/arepaconcafe/neko-base/resolve/main/logo.ico"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+    <body class="lang-en">
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img
+                class="lightbox-content"
+                id="lightbox-img"
+                alt="Lightbox Image"
+            />
         </div>
-        <ul class="nav-links">
-            <li class="nav-item">
-                <a href="#inicio" class="nav-link active" data-target="inicio">
-                    <span>01</span> <span class="en">Home</span><span class="es">Inicio</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#detalles" class="nav-link" data-target="detalles">
-                    <span>02</span> <span class="en">Details</span><span class="es">Detalles</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#galeria" class="nav-link" data-target="galeria">
-                    <span>03</span> <span class="en">Gallery</span><span class="es">Galería</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#descargas" class="nav-link" data-target="descargas">
-                    <span>04</span> <span class="en">Download</span><span class="es">Descargas</span>
-                </a>
-            </li>
-        </ul>
-        <div class="navbar-right">
-            <div class="lang-switch">
-                <button id="btn-en" onclick="setLang('en')" class="lang-btn active">EN</button>
-                <button id="btn-es" onclick="setLang('es')" class="lang-btn">ES</button>
-            </div>
-        </div>
-    </nav>
 
-    <main>
-        <section id="inicio" class="hero app-section active">
-            <h1>NEKO VOID</h1>
-            <span>&lt;respin_void_linux /&gt;</span>
-            <div class="project-links">
-                <a href="https://sourceforge.net/projects/neko-void/" target="_blank" rel="noopener noreferrer" class="btn-link" style="text-decoration: none;">SourceForge</a>
-                <a href="https://codeberg.org/javiercplus/Neko-Void" target="_blank" rel="noopener noreferrer" class="btn-link" style="text-decoration: none;">Codeberg</a>
-                <a href="https://codeberg.org/javiercplus/Kasha-Installer" target="_blank" rel="noopener noreferrer" class="btn-link" style="text-decoration: none;">Kasha Installer</a>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="#inicio" class="navbar-brand">
+                    <img
+                        src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/logo.png"
+                        alt="Logo Neko-Void"
+                        class="navbar-logo-img"
+                    />
+                    <span>NEKO_VOID</span>
+                </a>
+                <div id="version-tag" class="version-badge">
+                    <span class="en">Loading version...</span
+                    ><span class="es">Cargando versión...</span>
+                </div>
             </div>
-            
-            <footer style="margin-top: auto; padding: 20px; text-align: center; color: var(--comment); font-size: 0.85rem; width: 100%; border-top: 1px solid rgba(255,255,255,0.05);">
-                Neko-Void Project &copy; 2026 | Powered by Void Linux
-            </footer>
-        </section>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a
+                        href="#inicio"
+                        class="nav-link active"
+                        data-target="inicio"
+                    >
+                        <span>01</span> <span class="en">Home</span
+                        ><span class="es">Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#detalles" class="nav-link" data-target="detalles">
+                        <span>02</span> <span class="en">Details</span
+                        ><span class="es">Detalles</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#galeria" class="nav-link" data-target="galeria">
+                        <span>03</span> <span class="en">Gallery</span
+                        ><span class="es">Galería</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        href="#descargas"
+                        class="nav-link"
+                        data-target="descargas"
+                    >
+                        <span>04</span> <span class="en">Download</span
+                        ><span class="es">Descargas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        href="#donaciones"
+                        class="nav-link"
+                        data-target="donaciones"
+                    >
+                        <span>05</span> <span class="en">Donate</span
+                        ><span class="es">Donar</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="navbar-right">
+                <div class="lang-switch">
+                    <button
+                        id="btn-en"
+                        onclick="setLang('en')"
+                        class="lang-btn active"
+                    >
+                        EN
+                    </button>
+                    <button
+                        id="btn-es"
+                        onclick="setLang('es')"
+                        class="lang-btn"
+                    >
+                        ES
+                    </button>
+                </div>
+            </div>
+        </nav>
 
-        <section id="detalles" class="app-section">
-            <div class="container">
-            <h2 style="color: var(--cyan); margin-bottom: 30px; text-align: center;">
-                <span class="en">Specifications</span><span class="es">Especificaciones</span>
-            </h2>
-            <div class="tabs-wrapper">
-                <div class="tabs-header">
-                    <button class="tab-btn active" onclick="openTab(event, 'sys')">
-                        <span class="en">SYSTEM</span><span class="es">SISTEMA</span>
-                    </button>
-                    <button class="tab-btn" onclick="openTab(event, 'game')">GAMING</button>
-                    <button class="tab-btn" onclick="openTab(event, 'install')">KASHA</button>
-                    <button class="tab-btn" onclick="openTab(event, 'credits')">
-                        <span class="en">CREDITS</span><span class="es">CRÉDITOS</span>
-                    </button>
-                    <button class="tab-btn" onclick="openTab(event, 'support-project')">
-                        <span class="en">DONATE</span><span class="es">DONAR</span>
-                    </button>
+        <main>
+            <section id="inicio" class="hero app-section active">
+                <h1>NEKO VOID</h1>
+                <span>&lt;respin_void_linux /&gt;</span>
+                <div class="project-links">
+                    <a
+                        href="https://sourceforge.net/projects/neko-void/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-link"
+                        style="text-decoration: none"
+                        >SourceForge</a
+                    >
+                    <a
+                        href="https://codeberg.org/javiercplus/Neko-Void"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-link"
+                        style="text-decoration: none"
+                        >Codeberg</a
+                    >
+                    <a
+                        href="https://codeberg.org/javiercplus/Kasha-Installer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-link"
+                        style="text-decoration: none"
+                        >Kasha Installer</a
+                    >
                 </div>
-                
-                <div id="sys" class="tab-content active">
-                    <h3 style="color: var(--pink); margin-bottom: 15px;">Core Architecture &amp; Tools</h3>
-                    <p class="en">Neko-Void runs on <strong>Void Linux</strong>, using <strong>runit</strong> for an extremely fast boot. Its main edition features the <strong>MATE</strong> desktop (ISOs with other environments are coming soon). The system comes packed with essential tools out-of-the-box, including <strong>Flatpak</strong>, <strong>Tinyfetch</strong> (a minimalist fetch), <strong>btop</strong>, <strong>Octoxbps</strong>, and much more.</p>
-                    <p class="es">Neko-Void corre sobre <strong>Void Linux</strong>, usando <strong>runit</strong> para un arranque extremadamente veloz. Su edición principal presenta el escritorio <strong>MATE</strong> (próximamente se crearán ISOs con otros entornos). El sistema incluye herramientas esenciales listas para usar, como <strong>Flatpak</strong>, <strong>Tinyfetch</strong> (un fetch minimalista), <strong>btop</strong>, <strong>Octoxbps</strong> y mucho más.</p>
-                </div>
-                
-                <div id="game" class="tab-content">
-                    <h3 style="color: var(--pink); margin-bottom: 15px;">Performance Ready</h3>
-                    <p class="en">Optimized for performance with full <strong>Vulkan</strong> support and preconfigured non-free Intel/AMD drivers, ensuring your hardware runs smoothly from the very first minute.</p>
-                    <p class="es">Optimizado para el rendimiento con soporte completo para <strong>Vulkan</strong> y drivers non-free de Intel/AMD preconfigurados, asegurando que tu hardware funcione sin problemas desde el primer minuto.</p>
-                </div>
-                
-                <div id="install" class="tab-content">
-                    <h3 style="color: var(--pink); margin-bottom: 15px;">Kasha Installer &amp; Post-Install</h3>
-                    <p class="en">Our custom installer simplifies the Void Linux installation process (user, network, partitions). Once installed, a built-in <strong>post-install application installer</strong> allows you to automatically configure the system with one click for video editing, music production, design, gaming, office work, and more.</p>
-                    <p class="es">Nuestro instalador personalizado simplifica el proceso de instalación de Void Linux (usuario, red, particiones). Una vez instalado, un <strong>instalador de aplicaciones post-instalación</strong> integrado te permite configurar el sistema automáticamente con un clic para edición de video, producción musical, diseño, gaming, ofimática y más.</p>
-                </div>
-                
-                <div id="credits" class="tab-content">
-                    <h3 style="color: var(--pink); margin-bottom: 10px;">Neko-Void</h3>
-                    <p class="en">Neko-Void is an unofficial Void Linux respin. It currently features a preconfigured MATE desktop environment (our main edition, though other ISOs with more desktops will be created) with selected software for a complete experience. It includes a powerful post-install assistant to tailor the system to your needs (gaming, design, music production, etc.), plus pre-installed Flatpak, Octoxbps, Tinyfetch, and btop. All backed with full Vulkan and Pipewire support.</p>
-                    <p class="es">Neko-Void es un respin no oficial de Void Linux. Actualmente, presenta un entorno de escritorio MATE preconfigurado (nuestra edición principal, aunque se crearán otras ISOs con más escritorios) con software seleccionado para ofrecer una experiencia completa. Incluye un potente asistente post-instalación para adaptar el sistema a tus necesidades (gaming, diseño, producción musical, etc.), además de contar con Flatpak, Octoxbps, Tinyfetch y btop preinstalados. Todo respaldado con soporte completo para Vulkan y Pipewire.</p>
-                    
-                    <div class="credits-grid">
-                        <div><h4 style="color: var(--cyan);"><span class="en">Developer</span><span class="es">Desarrollador</span></h4><p>Javierc</p></div>
-                        <div><h4 style="color: var(--cyan);"><span class="en">Designer</span><span class="es">Diseñador</span></h4><p>Hikawa</p></div>
-                        <div><h4 style="color: var(--cyan);">Sponsor</h4><p>S. A.</p></div>
-                        <div><h4 style="color: var(--cyan);"><span class="en">Artists</span><span class="es">Artistas</span></h4><p>Moony&lt;3 &amp; Era_dark_knight</p></div>
+
+                <footer
+                    style="
+                        margin-top: auto;
+                        padding: 20px;
+                        text-align: center;
+                        color: var(--comment);
+                        font-size: 0.85rem;
+                        width: 100%;
+                        border-top: 1px solid rgba(255, 255, 255, 0.05);
+                    "
+                >
+                    Neko-Void Project &copy; 2026 | Powered by Void Linux
+                </footer>
+            </section>
+
+            <section id="detalles" class="app-section">
+                <div class="container">
+                    <h2
+                        style="
+                            color: var(--cyan);
+                            margin-bottom: 30px;
+                            text-align: center;
+                        "
+                    >
+                        <span class="en">Specifications</span
+                        ><span class="es">Especificaciones</span>
+                    </h2>
+                    <div class="tabs-wrapper">
+                        <div class="tabs-header">
+                            <button
+                                class="tab-btn active"
+                                onclick="openTab(event, 'sys')"
+                            >
+                                <span class="en">SYSTEM</span
+                                ><span class="es">SISTEMA</span>
+                            </button>
+                            <button
+                                class="tab-btn"
+                                onclick="openTab(event, 'game')"
+                            >
+                                GAMING
+                            </button>
+                            <button
+                                class="tab-btn"
+                                onclick="openTab(event, 'install')"
+                            >
+                                KASHA
+                            </button>
+                            <button
+                                class="tab-btn"
+                                onclick="openTab(event, 'credits')"
+                            >
+                                <span class="en">CREDITS</span
+                                ><span class="es">CRÉDITOS</span>
+                            </button>
+                        </div>
+
+                        <div id="sys" class="tab-content active">
+                            <h3 style="color: var(--pink); margin-bottom: 15px">
+                                Core Architecture &amp; Tools
+                            </h3>
+                            <p class="en">
+                                Neko-Void runs on <strong>Void Linux</strong>,
+                                using <strong>runit</strong> for an extremely
+                                fast boot. Its main edition features the
+                                <strong>MATE</strong> desktop (ISOs with other
+                                environments are coming soon). The system comes
+                                packed with essential tools out-of-the-box,
+                                including <strong>Flatpak</strong>,
+                                <strong>Tinyfetch</strong> (a minimalist fetch),
+                                <strong>btop</strong>,
+                                <strong>Octoxbps</strong>, and much more.
+                            </p>
+                            <p class="es">
+                                Neko-Void corre sobre
+                                <strong>Void Linux</strong>, usando
+                                <strong>runit</strong> para un arranque
+                                extremadamente veloz. Su edición principal
+                                presenta el escritorio
+                                <strong>MATE</strong> (próximamente se crearán
+                                ISOs con otros entornos). El sistema incluye
+                                herramientas esenciales listas para usar, como
+                                <strong>Flatpak</strong>,
+                                <strong>Tinyfetch</strong> (un fetch
+                                minimalista), <strong>btop</strong>,
+                                <strong>Octoxbps</strong> y mucho más.
+                            </p>
+                        </div>
+
+                        <div id="game" class="tab-content">
+                            <h3 style="color: var(--pink); margin-bottom: 15px">
+                                Performance Ready
+                            </h3>
+                            <p class="en">
+                                Optimized for performance with full
+                                <strong>Vulkan</strong> support and
+                                preconfigured non-free Intel/AMD drivers,
+                                ensuring your hardware runs smoothly from the
+                                very first minute.
+                            </p>
+                            <p class="es">
+                                Optimizado para el rendimiento con soporte
+                                completo para <strong>Vulkan</strong> y drivers
+                                non-free de Intel/AMD preconfigurados,
+                                asegurando que tu hardware funcione sin
+                                problemas desde el primer minuto.
+                            </p>
+                        </div>
+
+                        <div id="install" class="tab-content">
+                            <h3 style="color: var(--pink); margin-bottom: 15px">
+                                Kasha Installer &amp; Post-Install
+                            </h3>
+                            <p class="en">
+                                Our custom installer simplifies the Void Linux
+                                installation process (user, network,
+                                partitions). Once installed, a built-in
+                                <strong
+                                    >post-install application installer</strong
+                                >
+                                allows you to automatically configure the system
+                                with one click for video editing, music
+                                production, design, gaming, office work, and
+                                more.
+                            </p>
+                            <p class="es">
+                                Nuestro instalador personalizado simplifica el
+                                proceso de instalación de Void Linux (usuario,
+                                red, particiones). Una vez instalado, un
+                                <strong
+                                    >instalador de aplicaciones
+                                    post-instalación</strong
+                                >
+                                integrado te permite configurar el sistema
+                                automáticamente con un clic para edición de
+                                video, producción musical, diseño, gaming,
+                                ofimática y más.
+                            </p>
+                        </div>
+
+                        <div id="credits" class="tab-content">
+                            <h3 style="color: var(--pink); margin-bottom: 10px">
+                                Neko-Void
+                            </h3>
+                            <p class="en">
+                                Neko-Void is an unofficial Void Linux respin. It
+                                currently features a preconfigured MATE desktop
+                                environment (our main edition, though other ISOs
+                                with more desktops will be created) with
+                                selected software for a complete experience. It
+                                includes a powerful post-install assistant to
+                                tailor the system to your needs (gaming, design,
+                                music production, etc.), plus pre-installed
+                                Flatpak, Octoxbps, Tinyfetch, and btop. All
+                                backed with full Vulkan and Pipewire support.
+                            </p>
+                            <p class="es">
+                                Neko-Void es un respin no oficial de Void Linux.
+                                Actualmente, presenta un entorno de escritorio
+                                MATE preconfigurado (nuestra edición principal,
+                                aunque se crearán otras ISOs con más
+                                escritorios) con software seleccionado para
+                                ofrecer una experiencia completa. Incluye un
+                                potente asistente post-instalación para adaptar
+                                el sistema a tus necesidades (gaming, diseño,
+                                producción musical, etc.), además de contar con
+                                Flatpak, Octoxbps, Tinyfetch y btop
+                                preinstalados. Todo respaldado con soporte
+                                completo para Vulkan y Pipewire.
+                            </p>
+
+                            <div class="credits-grid">
+                                <div>
+                                    <h4 style="color: var(--cyan)">
+                                        <span class="en">Developer</span
+                                        ><span class="es">Desarrollador</span>
+                                    </h4>
+                                    <p>Javierc</p>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--cyan)">
+                                        <span class="en">Designer</span
+                                        ><span class="es">Diseñador</span>
+                                    </h4>
+                                    <p>Hikawa</p>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--cyan)">Sponsor</h4>
+                                    <p>S. A.</p>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--cyan)">
+                                        <span class="en">Artists</span
+                                        ><span class="es">Artistas</span>
+                                    </h4>
+                                    <p>Moony&lt;3 &amp; Era_dark_knight</p>
+                                </div>
+                            </div>
+
+                            <h4 style="color: var(--pink); margin-bottom: 10px">
+                                <span class="en">Why it was created</span
+                                ><span class="es">Por qué se creó</span>
+                            </h4>
+                            <p class="en" style="margin-bottom: 20px">
+                                The project originally started as a personal
+                                hobby. Over time, it evolved into a structured
+                                project aimed at offering an easy-to-install and
+                                user-friendly Void Linux version for the end
+                                user.
+                            </p>
+                            <p class="es" style="margin-bottom: 20px">
+                                El proyecto se originó inicialmente como un
+                                hobby personal. Con el tiempo, evolucionó hasta
+                                convertirse en un proyecto estructurado con el
+                                objetivo de ofrecer una versión de Void Linux
+                                que sea fácil de instalar y utilizar para el
+                                usuario final.
+                            </p>
+
+                            <h4 style="color: var(--pink); margin-bottom: 10px">
+                                <span class="en">Target Audience</span
+                                ><span class="es">Público dirigido</span>
+                            </h4>
+                            <p class="en">
+                                This distribution is aimed at users who want a
+                                lightweight and robust operating system, easily
+                                customizable for their specific workflow without
+                                the usual complications of a manual setup from
+                                scratch.
+                            </p>
+                            <p class="es">
+                                Esta distribución está dirigida a usuarios que
+                                desean un sistema operativo ligero y robusto,
+                                fácilmente adaptable a su flujo de trabajo
+                                específico sin las complicaciones habituales de
+                                una configuración manual desde cero.
+                            </p>
+                        </div>
                     </div>
-                    
-                    <h4 style="color: var(--pink); margin-bottom: 10px;"><span class="en">Why it was created</span><span class="es">Por qué se creó</span></h4>
-                    <p class="en" style="margin-bottom: 20px;">The project originally started as a personal hobby. Over time, it evolved into a structured project aimed at offering an easy-to-install and user-friendly Void Linux version for the end user.</p>
-                    <p class="es" style="margin-bottom: 20px;">El proyecto se originó inicialmente como un hobby personal. Con el tiempo, evolucionó hasta convertirse en un proyecto estructurado con el objetivo de ofrecer una versión de Void Linux que sea fácil de instalar y utilizar para el usuario final.</p>
-                    
-                    <h4 style="color: var(--pink); margin-bottom: 10px;"><span class="en">Target Audience</span><span class="es">Público dirigido</span></h4>
-                    <p class="en">This distribution is aimed at users who want a lightweight and robust operating system, easily customizable for their specific workflow without the usual complications of a manual setup from scratch.</p>
-                    <p class="es">Esta distribución está dirigida a usuarios que desean un sistema operativo ligero y robusto, fácilmente adaptable a su flujo de trabajo específico sin las complicaciones habituales de una configuración manual desde cero.</p>
                 </div>
-                
-                <div id="support-project" class="tab-content" style="text-align: center;">
-                    <h3 style="color: var(--pink); margin-bottom: 15px;"><span class="en">Support the Project</span><span class="es">Apoya el Proyecto</span></h3>
-                    <p style="margin-bottom: 30px; color: var(--foreground);">
-                        <span class="en">If you enjoy Neko-Void and want to help keep the servers running, consider buying us a coffee!</span>
-                        <span class="es">Si disfrutas de Neko-Void y quieres ayudar a mantener los servidores, ¡considera invitarnos un café!</span>
+            </section>
+
+            <section id="galeria" class="app-section">
+                <div class="container">
+                    <h2
+                        style="
+                            color: var(--pink);
+                            text-align: center;
+                            margin-bottom: 40px;
+                        "
+                    >
+                        <span class="en">Gallery</span
+                        ><span class="es">Capturas</span>
+                    </h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img
+                                src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/1.png"
+                                alt="Desktop View"
+                            />
+                        </div>
+                        <div class="gallery-item">
+                            <img
+                                src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/2.png"
+                                alt="Terminal View"
+                            />
+                        </div>
+                        <div class="gallery-item">
+                            <img
+                                src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/3.png"
+                                alt="Menu View"
+                            />
+                        </div>
+                        <div class="gallery-item">
+                            <img
+                                src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/4.png"
+                                alt="Gaming View"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="descargas" class="app-section">
+                <div class="container">
+                    <div class="download-cta" style="margin-bottom: 40px">
+                        <h2 style="color: var(--green)">
+                            <span class="en">Main Edition (MATE)</span
+                            ><span class="es">Edición Principal (MATE)</span>
+                        </h2>
+                        <div class="download-group">
+                            <div class="download-col">
+                                <button
+                                    id="link-xorg"
+                                    class="btn-main btn-primary"
+                                    style="
+                                        cursor: pointer;
+                                        font-family: inherit;
+                                    "
+                                >
+                                    <span class="en">Xorg Edition</span
+                                    ><span class="es">Edición Xorg</span>
+                                </button>
+                                <span
+                                    id="hash-xorg"
+                                    class="hash-text"
+                                    title="Click to copy"
+                                    style="cursor: pointer"
+                                    >SHA256: Loading...</span
+                                >
+                            </div>
+                            <div class="download-col">
+                                <button
+                                    id="link-xlibre"
+                                    class="btn-main btn-outline"
+                                    style="
+                                        cursor: pointer;
+                                        font-family: inherit;
+                                    "
+                                >
+                                    <span class="en">XLibre Edition</span
+                                    ><span class="es">Edición XLibre</span>
+                                </button>
+                                <span
+                                    id="hash-xlibre"
+                                    class="hash-text"
+                                    title="Click to copy"
+                                    style="cursor: pointer"
+                                    >SHA256: Loading...</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="download-cta"
+                        style="
+                            background: transparent;
+                            border: 1px solid var(--selection);
+                        "
+                    >
+                        <h2 style="color: var(--cyan); margin-bottom: 10px">
+                            <span class="en">Other Flavors</span
+                            ><span class="es">Otras Ediciones</span>
+                        </h2>
+                        <p style="color: var(--comment); margin-bottom: 30px">
+                            <span class="en"
+                                >Alternative desktop environments. If a button
+                                is gray, it means it is currently in
+                                development.</span
+                            >
+                            <span class="es"
+                                >Entornos de escritorio alternativos. Si un
+                                botón está en gris, significa que actualmente
+                                está en desarrollo.</span
+                            >
+                        </p>
+                        <div class="download-group" style="gap: 20px">
+                            <button
+                                id="flavor-xfce"
+                                class="btn-main btn-disabled"
+                                disabled
+                                style="font-family: inherit"
+                            >
+                                XFCE
+                                <span class="status-text"
+                                    >(<span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span
+                                    >)</span
+                                >
+                            </button>
+                            <button
+                                id="flavor-kde"
+                                class="btn-main btn-disabled"
+                                disabled
+                                style="font-family: inherit"
+                            >
+                                KDE
+                                <span class="status-text"
+                                    >(<span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span
+                                    >)</span
+                                >
+                            </button>
+                            <button
+                                id="flavor-sway-i3"
+                                class="btn-main btn-disabled"
+                                disabled
+                                style="font-family: inherit"
+                            >
+                                SWAY &amp; I3
+                                <span class="status-text"
+                                    >(<span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span
+                                    >)</span
+                                >
+                            </button>
+                            <button
+                                id="flavor-hyprland"
+                                class="btn-main btn-disabled"
+                                disabled
+                                style="font-family: inherit"
+                            >
+                                HYPRLAND
+                                <span class="status-text"
+                                    >(<span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span
+                                    >)</span
+                                >
+                            </button>
+                            <button
+                                id="flavor-lxqt"
+                                class="btn-main btn-disabled"
+                                disabled
+                                style="font-family: inherit"
+                            >
+                                LXQT
+                                <span class="status-text"
+                                    >(<span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span
+                                    >)</span
+                                >
+                            </button>
+                            <button
+                                id="flavor-labwc-openbox"
+                                class="btn-main btn-disabled"
+                                disabled
+                                style="font-family: inherit"
+                            >
+                                LABWC &amp; OPENBOX
+                                <span class="status-text"
+                                    >(<span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span
+                                    >)</span
+                                >
+                            </button>
+                            <button
+                                id="flavor-niri"
+                                class="btn-main btn-disabled"
+                                disabled
+                                style="font-family: inherit"
+                            >
+                                NIRI
+                                <span class="status-text"
+                                    >(<span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span
+                                    >)</span
+                                >
+                            </button>
+                            <button
+                                id="flavor-icewm-jwm"
+                                class="btn-main btn-disabled"
+                                disabled
+                                style="font-family: inherit"
+                            >
+                                ICEWM &amp; JWM
+                                <span class="status-text"
+                                    >(<span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span
+                                    >)</span
+                                >
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="donaciones" class="app-section">
+                <div class="container" style="text-align: center">
+                    <h2
+                        style="
+                            color: var(--pink);
+                            margin-bottom: 30px;
+                            text-align: center;
+                        "
+                    >
+                        <span class="en">Support the Project</span
+                        ><span class="es">Apoya el Proyecto</span>
+                    </h2>
+                    <p
+                        style="
+                            margin-bottom: 30px;
+                            color: var(--foreground);
+                            font-size: 1.1rem;
+                        "
+                    >
+                        <span class="en"
+                            >If you enjoy Neko-Void and want to help keep the
+                            servers running, consider buying us a coffee!</span
+                        >
+                        <span class="es"
+                            >Si disfrutas de Neko-Void y quieres ayudar a
+                            mantener los servidores, ¡considera invitarnos un
+                            café!</span
+                        >
                     </p>
-                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://linktr.ee/javiercplusx" target="_blank" rel="noopener noreferrer" class="btn-main" style="background: #FFDD00; color: black; border: 2px solid #FFDD00; text-decoration: none; transition: box-shadow 0.3s ease;">🥤 Buy Me a Coffee</a>
+                    <div
+                        style="
+                            display: flex;
+                            gap: 20px;
+                            justify-content: center;
+                            flex-wrap: wrap;
+                        "
+                    >
+                        <a
+                            href="https://linktr.ee/javiercplusx"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-main"
+                            style="
+                                background: #ffdd00;
+                                color: black;
+                                border: 2px solid #ffdd00;
+                                text-decoration: none;
+                                transition: box-shadow 0.3s ease;
+                            "
+                            >🥤 Buy Me a Coffee</a
+                        >
                     </div>
                 </div>
-            </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <section id="galeria" class="app-section">
-            <div class="container">
-            <h2 style="color: var(--pink); text-align: center; margin-bottom: 40px;"><span class="en">Gallery</span><span class="es">Capturas</span></h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/1.png" alt="Desktop View"></div>
-                <div class="gallery-item"><img src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/2.png" alt="Terminal View"></div>
-                <div class="gallery-item"><img src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/3.png" alt="Menu View"></div>
-                <div class="gallery-item"><img src="https://huggingface.co/arepaconcafe/neko-base/resolve/main/4.png" alt="Gaming View"></div>
-            </div>
-            </div>
-        </section>
-
-        <section id="descargas" class="app-section">
-            <div class="container">
-            <div class="download-cta" style="margin-bottom: 40px;">
-                <h2 style="color: var(--green);"><span class="en">Main Edition (MATE)</span><span class="es">Edición Principal (MATE)</span></h2>
-                <div class="download-group">
-                    <div class="download-col">
-                        <button id="link-xorg" class="btn-main btn-primary" style="cursor: pointer; font-family: inherit;">
-                            <span class="en">Xorg Edition</span><span class="es">Edición Xorg</span>
-                        </button>
-                        <span id="hash-xorg" class="hash-text" title="Click to copy" style="cursor: pointer;">SHA256: Loading...</span>
-                    </div>
-                    <div class="download-col">
-                        <button id="link-xlibre" class="btn-main btn-outline" style="cursor: pointer; font-family: inherit;">
-                            <span class="en">XLibre Edition</span><span class="es">Edición XLibre</span>
-                        </button>
-                        <span id="hash-xlibre" class="hash-text" title="Click to copy" style="cursor: pointer;">SHA256: Loading...</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="download-cta" style="background: transparent; border: 1px solid var(--selection);">
-                <h2 style="color: var(--cyan); margin-bottom: 10px;"><span class="en">Other Flavors</span><span class="es">Otras Ediciones</span></h2>
-                <p style="color: var(--comment); margin-bottom: 30px;">
-                    <span class="en">Alternative desktop environments. If a button is gray, it means it is currently in development.</span>
-                    <span class="es">Entornos de escritorio alternativos. Si un botón está en gris, significa que actualmente está en desarrollo.</span>
-                </p>
-                <div class="download-group" style="gap: 20px;">
-                    <button id="flavor-xfce" class="btn-main btn-disabled" disabled style="font-family: inherit;">XFCE <span class="status-text">(<span class="en">Coming Soon</span><span class="es">En desarrollo</span>)</span></button>
-                    <button id="flavor-kde" class="btn-main btn-disabled" disabled style="font-family: inherit;">KDE <span class="status-text">(<span class="en">Coming Soon</span><span class="es">En desarrollo</span>)</span></button>
-                    <button id="flavor-sway-i3" class="btn-main btn-disabled" disabled style="font-family: inherit;">SWAY &amp; I3 <span class="status-text">(<span class="en">Coming Soon</span><span class="es">En desarrollo</span>)</span></button>
-                    <button id="flavor-hyprland" class="btn-main btn-disabled" disabled style="font-family: inherit;">HYPRLAND <span class="status-text">(<span class="en">Coming Soon</span><span class="es">En desarrollo</span>)</span></button>
-                    <button id="flavor-lxqt" class="btn-main btn-disabled" disabled style="font-family: inherit;">LXQT <span class="status-text">(<span class="en">Coming Soon</span><span class="es">En desarrollo</span>)</span></button>
-                    <button id="flavor-labwc-openbox" class="btn-main btn-disabled" disabled style="font-family: inherit;">LABWC &amp; OPENBOX <span class="status-text">(<span class="en">Coming Soon</span><span class="es">En desarrollo</span>)</span></button>
-                    <button id="flavor-niri" class="btn-main btn-disabled" disabled style="font-family: inherit;">NIRI <span class="status-text">(<span class="en">Coming Soon</span><span class="es">En desarrollo</span>)</span></button>
-                    <button id="flavor-icewm-jwm" class="btn-main btn-disabled" disabled style="font-family: inherit;">ICEWM &amp; JWM <span class="status-text">(<span class="en">Coming Soon</span><span class="es">En desarrollo</span>)</span></button>
-                </div>
-            </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="./js/app.js" defer></script>
-</body>
+        <script src="./js/app.js" defer></script>
+    </body>
 </html>
