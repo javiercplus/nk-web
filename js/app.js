@@ -1,42 +1,83 @@
-/* Neko-Void — app.js (Versión Corregida) */
+/* Neko-Void — app.js (Modularized i18n) */
+
+// Import translations (will be loaded dynamically)
+let translations = {};
+let currentLang = 'en';
+
+const I18nManager = {
+    async init(lang = 'en') {
+        currentLang = lang;
+        await this.loadTranslations(lang);
+        this.applyTranslations();
+    },
+
+    async loadTranslations(lang) {
+        try {
+            const response = await fetch(`./i18n/${lang}.json`);
+            if (!response.ok) throw new Error(`Failed to load ${lang}.json`);
+            translations = await response.json();
+        } catch (error) {
+            console.error('Error loading translations:', error);
+            // Fallback to English
+            if (lang !== 'en') {
+                const response = await fetch('./i18n/en.json');
+                translations = await response.json();
+            }
+        }
+    },
+
+    t(path) {
+        return path.split('.').reduce((obj, key) => obj?.[key], translations);
+    },
+
+    applyTranslations() {
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const value = this.t(key);
+            if (value !== undefined) {
+                el.innerHTML = value;
+            }
+        });
+
+        // Update version tag
+        const versionTag = document.getElementById('version-tag');
+        if (versionTag && translations.version) {
+            versionTag.textContent = `${translations.version.prefix}${translations.version.loading}`;
+        }
+
+        // Update hash tooltips
+        const tooltip = this.t('downloads.hash_tooltip') || 'Click to copy';
+        document.querySelectorAll('.hash-text').forEach(el => {
+            el.title = tooltip;
+        });
+    }
+};
 
 const SecurityManager = {
     init() {
-        // Se han desactivado las restricciones de seguridad para permitir
-        // el uso de F12, inspeccionar elemento y depuración.
         console.log("Security restrictions disabled.");
     },
 
-    preventDevToolsKeys() {
-        // Desactivado: Ya no previene F12 ni combinaciones de teclas de consola
-    },
-
-    detectDevToolsResize() {
-        // Desactivado: Ya no limpia el body ni redirige al abrir la consola
-    },
-
-    startAntiDebugger() {
-        // Desactivado: Ya no ejecuta bucles de debugger
-    }
+    preventDevToolsKeys() {},
+    detectDevToolsResize() {},
+    startAntiDebugger() {}
 };
 
 const ContextMenuManager = {
     init() {
-        // Se desactiva la inicialización del menú personalizado
-        // para permitir el menú nativo del navegador.
         this.menu = document.getElementById('customContextMenu');
         if (this.menu) this.menu.style.display = 'none';
     },
 
-    bindEvents() {
-        // Eliminado preventDefault del contextmenu
-    }
+    bindEvents() {}
 };
 
 const UIManager = {
     currentLang: 'en',
 
-    init() {
+    async init() {
+        await I18nManager.init('en');
         this.initLightbox();
         this.initNavTabs();
         this.exposeGlobals();
@@ -85,16 +126,24 @@ const UIManager = {
         });
     },
 
-    setLanguage(lang) {
+    async setLanguage(lang) {
         this.currentLang = lang;
-        document.body.classList.remove('lang-en', 'lang-es');
+        
+        // Update body class for CSS-based language switching
+        document.body.classList.remove('lang-en', 'lang-es', 'lang-ja');
         document.body.classList.add(`lang-${lang}`);
         
+        // Update button states
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         const activeBtn = document.getElementById(`btn-${lang}`);
         if (activeBtn) activeBtn.classList.add('active');
 
-        const tooltip = lang === 'en' ? 'Click to copy' : 'Click para copiar';
+        // Load and apply new translations
+        await I18nManager.loadTranslations(lang);
+        I18nManager.applyTranslations();
+
+        // Update hash tooltips
+        const tooltip = I18nManager.t('downloads.hash_tooltip') || 'Click to copy';
         const hashXorg = document.getElementById('hash-xorg');
         const hashXlibre = document.getElementById('hash-xlibre');
         
@@ -193,12 +242,11 @@ const NetworkManager = {
 
                 if (btn && url && url.length > 0) {
                     // Update button text to "Download" when enabled FIRST
-                    const enSpan = btn.querySelector('span.en');
-                    const esSpan = btn.querySelector('span.es');
                     const editionName = id.charAt(0).toUpperCase() + id.slice(1);
+                    const downloadText = I18nManager.t('downloads.download_btn') || 'Download';
+                    const editionSuffix = I18nManager.t('downloads.edition_suffix') || 'Edition';
                     
-                    if (enSpan) enSpan.textContent = `Download ${editionName} Edition`;
-                    if (esSpan) esSpan.textContent = `Descargar Edición ${editionName}`;
+                    btn.innerHTML = `<span data-i18n="downloads.download_btn">${downloadText}</span> ${editionName} <span data-i18n="downloads.edition_suffix">${editionSuffix}</span>`;
                     
                     // Then update classes and enable
                     btn.className = 'btn-main btn-outline';
@@ -232,9 +280,8 @@ const NetworkManager = {
             hashEl = document.createElement('span');
             hashEl.id = `hash-${flavorId}`;
             hashEl.className = 'hash-text';
-            hashEl.title = UIManager.currentLang === 'en' ? 'Click to copy' : 'Click para copiar';
+            hashEl.title = I18nManager.t('downloads.hash_tooltip') || 'Click to copy';
             hashEl.style.cursor = 'pointer';
-            // Insert after the button, same structure as MATE editions
             btn.parentNode.insertBefore(hashEl, btn.nextSibling);
         }
 
@@ -248,9 +295,9 @@ const NetworkManager = {
 };
 
 // Inicialización de la aplicación sin bloqueos
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // SecurityManager.init(); // Desactivado
     // ContextMenuManager.init(); // Desactivado para permitir menú nativo
-    UIManager.init();
+    await UIManager.init();
     NetworkManager.loadDownloads();
 });

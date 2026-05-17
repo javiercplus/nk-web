@@ -51,6 +51,11 @@ h1, h2, h3, h4 {
 /* --- SISTEMA DE IDIOMAS --- */
 body.lang-es .en { display: none !important; }
 body.lang-en .es { display: none !important; }
+body.lang-en .ja { display: none !important; }
+body.lang-es .en { display: none !important; }
+body.lang-es .ja { display: none !important; }
+body.lang-ja .en { display: none !important; }
+body.lang-ja .es { display: none !important; }
 
 .lang-switch {
     display: flex;
