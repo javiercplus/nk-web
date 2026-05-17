@@ -190,8 +190,9 @@ const NetworkManager = {
                 const url = flavor.textContent.trim();
                 const btn = document.getElementById(`flavor-${id}`);
 
-                if (btn && url) {
+                if (btn && url && url.length > 0) {
                     btn.className = 'btn-main btn-outline';
+                    btn.disabled = false;
                     const statusText = btn.querySelector('.status-text');
                     if (statusText) statusText.style.display = 'none';
                     btn.onclick = () => window.open(url, '_blank');
