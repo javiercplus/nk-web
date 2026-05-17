@@ -37,7 +37,8 @@
                 </a>
                 <div id="version-tag" class="version-badge">
                     <span class="en">Loading version...</span
-                    ><span class="es">Cargando versión...</span>
+                    ><span class="es">Cargando versión...</span
+                    ><span class="ja">バージョンを読み込み中...</span>
                 </div>
             </div>
             <ul class="nav-links">
@@ -48,19 +49,22 @@
                         data-target="inicio"
                     >
                         <span>01</span> <span class="en">Home</span
-                        ><span class="es">Inicio</span>
+                        ><span class="es">Inicio</span
+                        ><span class="ja">ホーム</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#detalles" class="nav-link" data-target="detalles">
                         <span>02</span> <span class="en">Details</span
-                        ><span class="es">Detalles</span>
+                        ><span class="es">Detalles</span
+                        ><span class="ja">詳細</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#galeria" class="nav-link" data-target="galeria">
                         <span>03</span> <span class="en">Gallery</span
-                        ><span class="es">Galería</span>
+                        ><span class="es">Galería</span
+                        ><span class="ja">ギャラリー</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -70,7 +74,8 @@
                         data-target="descargas"
                     >
                         <span>04</span> <span class="en">Download</span
-                        ><span class="es">Descargas</span>
+                        ><span class="es">Descargas</span
+                        ><span class="ja">ダウンロード</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -80,7 +85,8 @@
                         data-target="donaciones"
                     >
                         <span>05</span> <span class="en">Donate</span
-                        ><span class="es">Donar</span>
+                        ><span class="es">Donar</span
+                        ><span class="ja">寄付</span>
                     </a>
                 </li>
             </ul>
@@ -99,6 +105,13 @@
                         class="lang-btn"
                     >
                         ES
+                    </button>
+                    <button
+                        id="btn-ja"
+                        onclick="setLang('ja')"
+                        class="lang-btn"
+                    >
+                        JA
                     </button>
                 </div>
             </div>
@@ -168,7 +181,8 @@
                         "
                     >
                         <span class="en">Specifications</span
-                        ><span class="es">Especificaciones</span>
+                        ><span class="es">Especificaciones</span
+                        ><span class="ja">仕様</span>
                     </h2>
                     <div class="tabs-wrapper">
                         <div class="tabs-header">
@@ -177,13 +191,14 @@
                                 onclick="openTab(event, 'sys')"
                             >
                                 <span class="en">SYSTEM</span
-                                ><span class="es">SISTEMA</span>
+                                ><span class="es">SISTEMA</span
+                                ><span class="ja">システム</span>
                             </button>
                             <button
                                 class="tab-btn"
                                 onclick="openTab(event, 'game')"
                             >
-                                GAMING
+                                GAMING<span class="ja" style="display:none"> ゲーミング</span>
                             </button>
                             <button
                                 class="tab-btn"
@@ -196,7 +211,8 @@
                                 onclick="openTab(event, 'credits')"
                             >
                                 <span class="en">CREDITS</span
-                                ><span class="es">CRÉDITOS</span>
+                                ><span class="es">CRÉDITOS</span
+                                ><span class="ja">クレジット</span>
                             </button>
                         </div>
 
@@ -230,6 +246,15 @@
                                 minimalista), <strong>btop</strong>,
                                 <strong>Octoxbps</strong> y mucho más.
                             </p>
+                            <p class="ja">
+                                Neko-Void は<strong>Void Linux</strong>をベースにし、
+                                <strong>runit</strong>を使用して非常に高速なブートを実現。
+                                メインエディションは<strong>MATE</strong>デスクトップを搭載
+                                （他のデスクトップ環境付き ISO も近日公開）。システムには、
+                                <strong>Flatpak</strong>、<strong>Tinyfetch</strong>（ミニマリストな fetch）、
+                                <strong>btop</strong>、<strong>Octoxbps</strong>など、
+                                必要なツールが最初から揃っています。
+                            </p>
                         </div>
 
                         <div id="game" class="tab-content">
@@ -249,6 +274,11 @@
                                 non-free de Intel/AMD preconfigurados,
                                 asegurando que tu hardware funcione sin
                                 problemas desde el primer minuto.
+                            </p>
+                            <p class="ja">
+                                完全な<strong>Vulkan</strong>サポートと、
+                                事前設定された Intel/AMD 用 non-free ドライバーによりパフォーマンス最適化。
+                                ハードウェアが最初の瞬間からスムーズに動作します。
                             </p>
                         </div>
 
@@ -280,6 +310,13 @@
                                 automáticamente con un clic para edición de
                                 video, producción musical, diseño, gaming,
                                 ofimática y más.
+                            </p>
+                            <p class="ja">
+                                カスタムインストーラーが Void Linux のインストールプロセス
+                                （ユーザー、ネットワーク、パーティション）を簡素化。
+                                インストール後、内蔵の<strong>ポストインストールアプリケーションインストーラー</strong>
+                                で、ビデオ編集、音楽制作、デザイン、ゲーミング、オフィス作業などのために
+                                ワンクリックでシステムを自動設定できます。
                             </p>
                         </div>
 
@@ -313,19 +350,31 @@
                                 preinstalados. Todo respaldado con soporte
                                 completo para Vulkan y Pipewire.
                             </p>
+                            <p class="ja">
+                                Neko-Void は Void Linux の非公式レスピンです。
+                                現在、事前設定された MATE デスクトップ環境を特徴とし
+                                （これがメインエディションで、他のデスクトップ環境付き ISO も作成予定）、
+                                完全な体験のための選択済みソフトウェアを搭載。
+                                ゲーミング、デザイン、音楽制作など、ユーザーのニーズに合わせて
+                                システムをカスタマイズできる強力なポストインストールアシスタント、
+                                さらに Flatpak、Octoxbps、Tinyfetch、btop が事前インストールされています。
+                                すべて Vulkan と Pipewire の完全サポートにより支えられています。
+                            </p>
 
                             <div class="credits-grid">
                                 <div>
                                     <h4 style="color: var(--cyan)">
                                         <span class="en">Developer</span
-                                        ><span class="es">Desarrollador</span>
+                                        ><span class="es">Desarrollador</span
+                                        ><span class="ja">開発者</span>
                                     </h4>
                                     <p>Javierc</p>
                                 </div>
                                 <div>
                                     <h4 style="color: var(--cyan)">
                                         <span class="en">Designer</span
-                                        ><span class="es">Diseñador</span>
+                                        ><span class="es">Diseñador</span
+                                        ><span class="ja">デザイナー</span>
                                     </h4>
                                     <p>Hikawa</p>
                                 </div>
@@ -336,7 +385,8 @@
                                 <div>
                                     <h4 style="color: var(--cyan)">
                                         <span class="en">Artists</span
-                                        ><span class="es">Artistas</span>
+                                        ><span class="es">Artistas</span
+                                        ><span class="ja">アーティスト</span>
                                     </h4>
                                     <p>Moony&lt;3 &amp; Era_dark_knight</p>
                                 </div>
@@ -344,7 +394,8 @@
 
                             <h4 style="color: var(--pink); margin-bottom: 10px">
                                 <span class="en">Why it was created</span
-                                ><span class="es">Por qué se creó</span>
+                                ><span class="es">Por qué se creó</span
+                                ><span class="ja">作成理由</span>
                             </h4>
                             <p class="en" style="margin-bottom: 20px">
                                 The project originally started as a personal
@@ -361,10 +412,17 @@
                                 que sea fácil de instalar y utilizar para el
                                 usuario final.
                             </p>
+                            <p class="ja" style="margin-bottom: 20px">
+                                このプロジェクトは元々個人的な趣味として始まりました。
+                                時を経て、エンドユーザー向けに簡単にインストールできて
+                                使いやすい Void Linux バージョンを提供することを目的とした
+                                構造化されたプロジェクトへと進化しました。
+                            </p>
 
                             <h4 style="color: var(--pink); margin-bottom: 10px">
                                 <span class="en">Target Audience</span
-                                ><span class="es">Público dirigido</span>
+                                ><span class="es">Público dirigido</span
+                                ><span class="ja">対象ユーザー</span>
                             </h4>
                             <p class="en">
                                 This distribution is aimed at users who want a
@@ -379,6 +437,11 @@
                                 fácilmente adaptable a su flujo de trabajo
                                 específico sin las complicaciones habituales de
                                 una configuración manual desde cero.
+                            </p>
+                            <p class="ja">
+                                このディストリビューションは、軽量で堅牢なオペレーティングシステムを求め、
+                                一から手動でセットアップする際の一般的な複雑さなしに、
+                                特定のワークフローに簡単にカスタマイズしたいユーザーを対象としています。
                             </p>
                         </div>
                     </div>
@@ -395,7 +458,8 @@
                         "
                     >
                         <span class="en">Gallery</span
-                        ><span class="es">Capturas</span>
+                        ><span class="es">Capturas</span
+                        ><span class="ja">ギャラリー</span>
                     </h2>
                     <div class="gallery-grid">
                         <div class="gallery-item">
@@ -437,7 +501,8 @@
                     >
                         <h2 style="color: var(--cyan); margin-bottom: 10px">
                             <span class="en">Editions</span
-                            ><span class="es">Ediciones</span>
+                            ><span class="es">Ediciones</span
+                            ><span class="ja">エディション</span>
                         </h2>
                         <p style="color: var(--comment); margin-bottom: 30px">
                             <span class="en"
@@ -445,6 +510,9 @@
                             >
                             <span class="es"
                                 >Todas las ediciones de Neko-Void con diferentes entornos de escritorio. Si un botón está en gris, significa que actualmente está en desarrollo.</span
+                            >
+                            <span class="ja"
+                                >さまざまなデスクトップ環境を備えた Neko-Void の全エディション。ボタンが灰色の場合は、現在開発中であることを意味します。</span
                             >
                         </p>
                         
@@ -463,7 +531,8 @@
                                     "
                                 >
                                     <span class="en">Download Xorg Edition</span
-                                    ><span class="es">Descargar Edición Xorg</span>
+                                    ><span class="es">Descargar Edición Xorg</span
+                                    ><span class="ja">Xorg エディションをダウンロード</span>
                                 </button>
                                 <span
                                     id="hash-xorg"
@@ -488,7 +557,8 @@
                                     "
                                 >
                                     <span class="en">Download XLibre Edition</span
-                                    ><span class="es">Descargar Edición XLibre</span>
+                                    ><span class="es">Descargar Edición XLibre</span
+                                    ><span class="ja">XLibre エディションをダウンロード</span>
                                 </button>
                                 <span
                                     id="hash-xlibre"
@@ -511,7 +581,8 @@
                                     style="font-family: inherit"
                                 >
                                     <span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span>
+                                    ><span class="es">En desarrollo</span
+                                    ><span class="ja">開発中</span>
                                     <span class="status-text"></span>
                                 </button>
                             </div>
@@ -528,7 +599,8 @@
                                     style="font-family: inherit"
                                 >
                                     <span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span>
+                                    ><span class="es">En desarrollo</span
+                                    ><span class="ja">開発中</span>
                                     <span class="status-text"></span>
                                 </button>
                             </div>
@@ -545,7 +617,8 @@
                                     style="font-family: inherit"
                                 >
                                     <span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span>
+                                    ><span class="es">En desarrollo</span
+                                    ><span class="ja">開発中</span>
                                     <span class="status-text"></span>
                                 </button>
                             </div>
