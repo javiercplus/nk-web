@@ -294,7 +294,71 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
     margin: 60px 0; 
     border: 1px solid rgba(255,255,255,0.05); 
 }
-.download-group { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+
+/* Editions Grid Layout */
+.editions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.edition-card {
+    background: rgba(37, 38, 58, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: var(--transition-smooth);
+}
+
+.edition-card:hover {
+    border-color: rgba(166, 227, 161, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.edition-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.edition-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.edition-badge {
+    font-size: 0.65rem;
+    font-family: 'Fira Code', monospace;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.edition-header-main .edition-badge {
+    background: rgba(166, 227, 161, 0.15);
+    color: var(--green);
+    border: 1px solid rgba(166, 227, 161, 0.3);
+}
+
+.edition-header-flavor .edition-badge.flavor {
+    background: rgba(245, 194, 231, 0.15);
+    color: var(--pink);
+    border: 1px solid rgba(245, 194, 231, 0.3);
+}
+
 .download-col { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; max-width: 300px;}
 
 .btn-main { 
@@ -453,7 +517,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
 @media (max-width: 600px) {
     .hero h1 { font-size: 2.8rem; }
     .main-logo { width: 140px; }
-    .download-group { flex-direction: column; align-items: center; }
+    .editions-grid { grid-template-columns: 1fr; }
     .download-col { max-width: 100%; }
     .tab-content { padding: 30px 20px; }
     .lang-switch { padding: 4px; }
