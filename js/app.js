@@ -191,16 +191,19 @@ const NetworkManager = {
                 const btn = document.getElementById(`flavor-${id}`);
 
                 if (btn && url && url.length > 0) {
+                    // Update button text to "Download" when enabled FIRST
+                    const enSpan = btn.querySelector('span.en');
+                    const esSpan = btn.querySelector('span.es');
+                    const editionName = id.charAt(0).toUpperCase() + id.slice(1);
+                    
+                    if (enSpan) enSpan.textContent = `Download ${editionName} Edition`;
+                    if (esSpan) esSpan.textContent = `Descargar Edición ${editionName}`;
+                    
+                    // Then update classes and enable
                     btn.className = 'btn-main btn-outline';
                     btn.disabled = false;
                     const statusText = btn.querySelector('.status-text');
                     if (statusText) statusText.style.display = 'none';
-                    
-                    // Update button text to "Download" when enabled
-                    const enSpan = btn.querySelector('span.en');
-                    const esSpan = btn.querySelector('span.es');
-                    if (enSpan) enSpan.textContent = `Download ${id.charAt(0).toUpperCase() + id.slice(1)} Edition`;
-                    if (esSpan) esSpan.textContent = `Descargar Edición ${id.charAt(0).toUpperCase() + id.slice(1)}`;
                     
                     btn.onclick = () => window.open(url, '_blank');
                 }
