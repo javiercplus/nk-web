@@ -188,6 +188,7 @@ const NetworkManager = {
             xmlDoc.querySelectorAll('flavor').forEach(flavor => {
                 const id = flavor.getAttribute('id');
                 const url = flavor.textContent.trim();
+                const hash = flavor.getAttribute('sha256');
                 const btn = document.getElementById(`flavor-${id}`);
 
                 if (btn && url && url.length > 0) {
@@ -206,11 +207,38 @@ const NetworkManager = {
                     if (statusText) statusText.style.display = 'none';
                     
                     btn.onclick = () => window.open(url, '_blank');
+
+                    // Add SHA256 hash display if available
+                    if (hash) {
+                        this.addFlavorHash(id, hash);
+                    }
                 }
             });
         } catch (error) {
             console.warn('Flavors file not found or could not be loaded.');
         }
+    },
+
+    addFlavorHash(flavorId, hash) {
+        const card = document.querySelector(`#flavor-${flavorId}`).closest('.edition-card');
+        if (!card) return;
+
+        // Check if hash element already exists
+        let hashEl = card.querySelector('.flavor-hash');
+        if (!hashEl) {
+            hashEl = document.createElement('div');
+            hashEl.className = 'flavor-hash';
+            hashEl.style.cssText = 'margin-top: 10px; font-family: "Fira Code", monospace; font-size: 0.75rem; color: var(--comment); cursor: pointer; text-align: center;';
+            hashEl.title = 'Click to copy SHA256';
+            card.appendChild(hashEl);
+        }
+
+        hashEl.textContent = `SHA256: ${hash}`;
+        hashEl.onclick = async () => {
+            await navigator.clipboard.writeText(hash);
+            hashEl.style.color = 'var(--green)';
+            setTimeout(() => hashEl.style.color = 'var(--comment)', 1000);
+        };
     }
 };
 
