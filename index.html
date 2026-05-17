@@ -428,13 +428,33 @@
 
             <section id="descargas" class="app-section">
                 <div class="container">
-                    <div class="download-cta" style="margin-bottom: 40px">
-                        <h2 style="color: var(--green)">
-                            <span class="en">Main Edition (MATE)</span
-                            ><span class="es">Edición Principal (MATE)</span>
+                    <div
+                        class="download-cta"
+                        style="
+                            background: transparent;
+                            border: 1px solid var(--selection);
+                        "
+                    >
+                        <h2 style="color: var(--cyan); margin-bottom: 10px">
+                            <span class="en">Editions</span
+                            ><span class="es">Ediciones</span>
                         </h2>
-                        <div class="download-group">
-                            <div class="download-col">
+                        <p style="color: var(--comment); margin-bottom: 30px">
+                            <span class="en"
+                                >All Neko-Void editions with different desktop environments. If a button is gray, it means it is currently in development.</span
+                            >
+                            <span class="es"
+                                >Todas las ediciones de Neko-Void con diferentes entornos de escritorio. Si un botón está en gris, significa que actualmente está en desarrollo.</span
+                            >
+                        </p>
+                        
+                        <div class="editions-grid">
+                            <!-- Main Edition - Xorg -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-main">
+                                    <span class="edition-badge">Main</span>
+                                    <h3>MATE - Xorg</h3>
+                                </div>
                                 <button
                                     id="link-xorg"
                                     class="btn-main btn-primary"
@@ -443,8 +463,8 @@
                                         font-family: inherit;
                                     "
                                 >
-                                    <span class="en">Xorg Edition</span
-                                    ><span class="es">Edición Xorg</span>
+                                    <span class="en">Download Xorg Edition</span
+                                    ><span class="es">Descargar Edición Xorg</span>
                                 </button>
                                 <span
                                     id="hash-xorg"
@@ -454,7 +474,13 @@
                                     >SHA256: Loading...</span
                                 >
                             </div>
-                            <div class="download-col">
+                            
+                            <!-- Main Edition - XLibre -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-main">
+                                    <span class="edition-badge">Main</span>
+                                    <h3>MATE - XLibre</h3>
+                                </div>
                                 <button
                                     id="link-xlibre"
                                     class="btn-main btn-outline"
@@ -463,8 +489,8 @@
                                         font-family: inherit;
                                     "
                                 >
-                                    <span class="en">XLibre Edition</span
-                                    ><span class="es">Edición XLibre</span>
+                                    <span class="en">Download XLibre Edition</span
+                                    ><span class="es">Descargar Edición XLibre</span>
                                 </button>
                                 <span
                                     id="hash-xlibre"
@@ -474,137 +500,150 @@
                                     >SHA256: Loading...</span
                                 >
                             </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="download-cta"
-                        style="
-                            background: transparent;
-                            border: 1px solid var(--selection);
-                        "
-                    >
-                        <h2 style="color: var(--cyan); margin-bottom: 10px">
-                            <span class="en">Other Flavors</span
-                            ><span class="es">Otras Ediciones</span>
-                        </h2>
-                        <p style="color: var(--comment); margin-bottom: 30px">
-                            <span class="en"
-                                >Alternative desktop environments. If a button
-                                is gray, it means it is currently in
-                                development.</span
-                            >
-                            <span class="es"
-                                >Entornos de escritorio alternativos. Si un
-                                botón está en gris, significa que actualmente
-                                está en desarrollo.</span
-                            >
-                        </p>
-                        <div class="download-group" style="gap: 20px">
-                            <button
-                                id="flavor-xfce"
-                                class="btn-main btn-disabled"
-                                disabled
-                                style="font-family: inherit"
-                            >
-                                XFCE
-                                <span class="status-text"
-                                    >(<span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span
-                                    >)</span
+                            
+                            <!-- Flavor - XFCE -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-flavor">
+                                    <span class="edition-badge flavor">Flavor</span>
+                                    <h3>XFCE</h3>
+                                </div>
+                                <button
+                                    id="flavor-xfce"
+                                    class="btn-main btn-disabled"
+                                    disabled
+                                    style="font-family: inherit"
                                 >
-                            </button>
-                            <button
-                                id="flavor-kde"
-                                class="btn-main btn-disabled"
-                                disabled
-                                style="font-family: inherit"
-                            >
-                                KDE
-                                <span class="status-text"
-                                    >(<span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span
-                                    >)</span
+                                    <span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span>
+                                    <span class="status-text"></span>
+                                </button>
+                            </div>
+                            
+                            <!-- Flavor - KDE -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-flavor">
+                                    <span class="edition-badge flavor">Flavor</span>
+                                    <h3>KDE</h3>
+                                </div>
+                                <button
+                                    id="flavor-kde"
+                                    class="btn-main btn-disabled"
+                                    disabled
+                                    style="font-family: inherit"
                                 >
-                            </button>
-                            <button
-                                id="flavor-sway-i3"
-                                class="btn-main btn-disabled"
-                                disabled
-                                style="font-family: inherit"
-                            >
-                                SWAY &amp; I3
-                                <span class="status-text"
-                                    >(<span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span
-                                    >)</span
+                                    <span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span>
+                                    <span class="status-text"></span>
+                                </button>
+                            </div>
+                            
+                            <!-- Flavor - SWAY & I3 -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-flavor">
+                                    <span class="edition-badge flavor">Flavor</span>
+                                    <h3>SWAY &amp; I3</h3>
+                                </div>
+                                <button
+                                    id="flavor-sway-i3"
+                                    class="btn-main btn-disabled"
+                                    disabled
+                                    style="font-family: inherit"
                                 >
-                            </button>
-                            <button
-                                id="flavor-hyprland"
-                                class="btn-main btn-disabled"
-                                disabled
-                                style="font-family: inherit"
-                            >
-                                HYPRLAND
-                                <span class="status-text"
-                                    >(<span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span
-                                    >)</span
+                                    <span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span>
+                                    <span class="status-text"></span>
+                                </button>
+                            </div>
+                            
+                            <!-- Flavor - HYPRLAND -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-flavor">
+                                    <span class="edition-badge flavor">Flavor</span>
+                                    <h3>HYPRLAND</h3>
+                                </div>
+                                <button
+                                    id="flavor-hyprland"
+                                    class="btn-main btn-disabled"
+                                    disabled
+                                    style="font-family: inherit"
                                 >
-                            </button>
-                            <button
-                                id="flavor-lxqt"
-                                class="btn-main btn-disabled"
-                                disabled
-                                style="font-family: inherit"
-                            >
-                                LXQT
-                                <span class="status-text"
-                                    >(<span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span
-                                    >)</span
+                                    <span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span>
+                                    <span class="status-text"></span>
+                                </button>
+                            </div>
+                            
+                            <!-- Flavor - LXQT -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-flavor">
+                                    <span class="edition-badge flavor">Flavor</span>
+                                    <h3>LXQT</h3>
+                                </div>
+                                <button
+                                    id="flavor-lxqt"
+                                    class="btn-main btn-disabled"
+                                    disabled
+                                    style="font-family: inherit"
                                 >
-                            </button>
-                            <button
-                                id="flavor-labwc-openbox"
-                                class="btn-main btn-disabled"
-                                disabled
-                                style="font-family: inherit"
-                            >
-                                LABWC &amp; OPENBOX
-                                <span class="status-text"
-                                    >(<span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span
-                                    >)</span
+                                    <span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span>
+                                    <span class="status-text"></span>
+                                </button>
+                            </div>
+                            
+                            <!-- Flavor - LABWC & OPENBOX -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-flavor">
+                                    <span class="edition-badge flavor">Flavor</span>
+                                    <h3>LABWC &amp; OPENBOX</h3>
+                                </div>
+                                <button
+                                    id="flavor-labwc-openbox"
+                                    class="btn-main btn-disabled"
+                                    disabled
+                                    style="font-family: inherit"
                                 >
-                            </button>
-                            <button
-                                id="flavor-niri"
-                                class="btn-main btn-disabled"
-                                disabled
-                                style="font-family: inherit"
-                            >
-                                NIRI
-                                <span class="status-text"
-                                    >(<span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span
-                                    >)</span
+                                    <span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span>
+                                    <span class="status-text"></span>
+                                </button>
+                            </div>
+                            
+                            <!-- Flavor - NIRI -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-flavor">
+                                    <span class="edition-badge flavor">Flavor</span>
+                                    <h3>NIRI</h3>
+                                </div>
+                                <button
+                                    id="flavor-niri"
+                                    class="btn-main btn-disabled"
+                                    disabled
+                                    style="font-family: inherit"
                                 >
-                            </button>
-                            <button
-                                id="flavor-icewm-jwm"
-                                class="btn-main btn-disabled"
-                                disabled
-                                style="font-family: inherit"
-                            >
-                                ICEWM &amp; JWM
-                                <span class="status-text"
-                                    >(<span class="en">Coming Soon</span
-                                    ><span class="es">En desarrollo</span
-                                    >)</span
+                                    <span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span>
+                                    <span class="status-text"></span>
+                                </button>
+                            </div>
+                            
+                            <!-- Flavor - ICEWM & JWM -->
+                            <div class="edition-card">
+                                <div class="edition-header edition-header-flavor">
+                                    <span class="edition-badge flavor">Flavor</span>
+                                    <h3>ICEWM &amp; JWM</h3>
+                                </div>
+                                <button
+                                    id="flavor-icewm-jwm"
+                                    class="btn-main btn-disabled"
+                                    disabled
+                                    style="font-family: inherit"
                                 >
-                            </button>
+                                    <span class="en">Coming Soon</span
+                                    ><span class="es">En desarrollo</span>
+                                    <span class="status-text"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
