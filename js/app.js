@@ -220,16 +220,22 @@ const NetworkManager = {
     },
 
     addFlavorHash(flavorId, hash) {
-        const card = document.querySelector(`#flavor-${flavorId}`).closest('.edition-card');
+        const btn = document.getElementById(`flavor-${flavorId}`);
+        if (!btn) return;
+        
+        const card = btn.closest('.edition-card');
         if (!card) return;
 
         // Check if hash element already exists
         let hashEl = card.querySelector('.hash-text');
         if (!hashEl) {
             hashEl = document.createElement('span');
+            hashEl.id = `hash-${flavorId}`;
             hashEl.className = 'hash-text';
-            hashEl.title = 'Click to copy';
-            card.appendChild(hashEl);
+            hashEl.title = UIManager.currentLang === 'en' ? 'Click to copy' : 'Click para copiar';
+            hashEl.style.cursor = 'pointer';
+            // Insert after the button, same structure as MATE editions
+            btn.parentNode.insertBefore(hashEl, btn.nextSibling);
         }
 
         hashEl.textContent = `SHA256: ${hash}`;
