@@ -224,12 +224,11 @@ const NetworkManager = {
         if (!card) return;
 
         // Check if hash element already exists
-        let hashEl = card.querySelector('.flavor-hash');
+        let hashEl = card.querySelector('.hash-text');
         if (!hashEl) {
-            hashEl = document.createElement('div');
-            hashEl.className = 'flavor-hash';
-            hashEl.style.cssText = 'margin-top: 10px; font-family: "Fira Code", monospace; font-size: 0.75rem; color: var(--comment); cursor: pointer; text-align: center;';
-            hashEl.title = 'Click to copy SHA256';
+            hashEl = document.createElement('span');
+            hashEl.className = 'hash-text';
+            hashEl.title = 'Click to copy';
             card.appendChild(hashEl);
         }
 
@@ -237,7 +236,7 @@ const NetworkManager = {
         hashEl.onclick = async () => {
             await navigator.clipboard.writeText(hash);
             hashEl.style.color = 'var(--green)';
-            setTimeout(() => hashEl.style.color = 'var(--comment)', 1000);
+            setTimeout(() => hashEl.style.color = '', 1000);
         };
     }
 };
