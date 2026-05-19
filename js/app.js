@@ -241,12 +241,10 @@ const NetworkManager = {
                 const btn = document.getElementById(`flavor-${id}`);
 
                 if (btn && url && url.length > 0) {
-                    // Update button text to "Download" when enabled FIRST
-                    const editionName = id.charAt(0).toUpperCase() + id.slice(1);
+                    // Update button text to only "Download" when enabled
                     const downloadText = I18nManager.t('downloads.download_btn') || 'Download';
-                    const editionSuffix = I18nManager.t('downloads.edition_suffix') || 'Edition';
                     
-                    btn.innerHTML = `<span data-i18n="downloads.download_btn">${downloadText}</span> ${editionName} <span data-i18n="downloads.edition_suffix">${editionSuffix}</span>`;
+                    btn.innerHTML = `<span data-i18n="downloads.download_btn">${downloadText}</span>`;
                     
                     // Then update classes and enable
                     btn.className = 'btn-main btn-outline';
