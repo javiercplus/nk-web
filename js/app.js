@@ -244,7 +244,7 @@ const NetworkManager = {
                     // Update button text to only "Download" when enabled
                     const downloadText = I18nManager.t('downloads.download_btn') || 'Download';
                     
-                    btn.innerHTML = `<span data-i18n="downloads.download_btn">${downloadText}</span>`;
+                    btn.innerHTML = `<span>${downloadText}</span>`;
                     
                     // Then update classes and enable
                     btn.className = 'btn-main btn-outline';
