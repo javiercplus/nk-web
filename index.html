@@ -48,21 +48,21 @@
                         class="nav-link active"
                         data-target="inicio"
                     >
-                        <span>01</span> <span class="en">Home</span
+                        <span class="en">Home</span
                         ><span class="es">Inicio</span
                         ><span class="ja">ホーム</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#detalles" class="nav-link" data-target="detalles">
-                        <span>02</span> <span class="en">Details</span
+                        <span class="en">Details</span
                         ><span class="es">Detalles</span
                         ><span class="ja">詳細</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#galeria" class="nav-link" data-target="galeria">
-                        <span>03</span> <span class="en">Gallery</span
+                        <span class="en">Gallery</span
                         ><span class="es">Galería</span
                         ><span class="ja">ギャラリー</span>
                     </a>
@@ -73,7 +73,7 @@
                         class="nav-link"
                         data-target="descargas"
                     >
-                        <span>04</span> <span class="en">Download</span
+                        <span class="en">Download</span
                         ><span class="es">Descargas</span
                         ><span class="ja">ダウンロード</span>
                     </a>
@@ -84,7 +84,7 @@
                         class="nav-link"
                         data-target="donaciones"
                     >
-                        <span>05</span> <span class="en">Donate</span
+                        <span class="en">Donate</span
                         ><span class="es">Donar</span
                         ><span class="ja">寄付</span>
                     </a>
@@ -176,250 +176,186 @@
                     <h2
                         style="
                             color: var(--cyan);
-                            margin-bottom: 30px;
+                            margin-bottom: 40px;
                             text-align: center;
+                            font-size: 2.5rem;
                         "
                     >
                         <span class="en">Specifications</span
                         ><span class="es">Especificaciones</span
                         ><span class="ja">仕様</span>
                     </h2>
-                    <div class="tabs-wrapper">
-                        <div class="tabs-header">
-                            <button
-                                class="tab-btn active"
-                                onclick="openTab(event, 'sys')"
-                            >
-                                <span class="en">SYSTEM</span
-                                ><span class="es">SISTEMA</span
-                                ><span class="ja">システム</span>
-                            </button>
-                            <button
-                                class="tab-btn"
-                                onclick="openTab(event, 'game')"
-                            >
-                                GAMING<span class="ja" style="display:none"> ゲーミング</span>
-                            </button>
-                            <button
-                                class="tab-btn"
-                                onclick="openTab(event, 'install')"
-                            >
-                                KASHA
-                            </button>
-                            <button
-                                class="tab-btn"
-                                onclick="openTab(event, 'credits')"
-                            >
-                                <span class="en">CREDITS</span
-                                ><span class="es">CRÉDITOS</span
-                                ><span class="ja">クレジット</span>
-                            </button>
-                        </div>
-
-                        <div id="sys" class="tab-content active">
+                    
+                    <!-- Features Grid -->
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🖥️</div>
                             <h3 style="color: var(--pink); margin-bottom: 15px">
-                                Core Architecture &amp; Tools
+                                <span class="en">Core Architecture</span
+                                ><span class="es">Arquitectura Base</span
+                                ><span class="ja">コアアーキテクチャ</span>
                             </h3>
                             <p class="en">
-                                Neko-Void runs on <strong>Void Linux</strong>,
-                                using <strong>runit</strong> for an extremely
-                                fast boot. Its main edition features the
-                                <strong>MATE</strong> desktop (ISOs with other
-                                environments are coming soon). The system comes
-                                packed with essential tools out-of-the-box,
-                                including <strong>Flatpak</strong>,
-                                <strong>Tinyfetch</strong> (a minimalist fetch),
-                                <strong>btop</strong>,
-                                <strong>Octoxbps</strong>, and much more.
+                                Built on <strong>Void Linux</strong> with 
+                                <strong>runit</strong> for lightning-fast boot times.
+                                Features the <strong>MATE</strong> desktop environment
+                                with essential tools pre-installed.
                             </p>
                             <p class="es">
-                                Neko-Void corre sobre
-                                <strong>Void Linux</strong>, usando
-                                <strong>runit</strong> para un arranque
-                                extremadamente veloz. Su edición principal
-                                presenta el escritorio
-                                <strong>MATE</strong> (próximamente se crearán
-                                ISOs con otros entornos). El sistema incluye
-                                herramientas esenciales listas para usar, como
-                                <strong>Flatpak</strong>,
-                                <strong>Tinyfetch</strong> (un fetch
-                                minimalista), <strong>btop</strong>,
-                                <strong>Octoxbps</strong> y mucho más.
+                                Basado en <strong>Void Linux</strong> con 
+                                <strong>runit</strong> para tiempos de arranque ultrarrápidos.
+                                Incluye el entorno de escritorio <strong>MATE</strong>
+                                con herramientas esenciales preinstaladas.
                             </p>
                             <p class="ja">
-                                Neko-Void は<strong>Void Linux</strong>をベースにし、
-                                <strong>runit</strong>を使用して非常に高速なブートを実現。
-                                メインエディションは<strong>MATE</strong>デスクトップを搭載
-                                （他のデスクトップ環境付き ISO も近日公開）。システムには、
-                                <strong>Flatpak</strong>、<strong>Tinyfetch</strong>（ミニマリストな fetch）、
-                                <strong>btop</strong>、<strong>Octoxbps</strong>など、
-                                必要なツールが最初から揃っています。
+                                <strong>Void Linux</strong>をベースに、<strong>runit</strong>で
+                                超高速ブートを実現。<strong>MATE</strong>デスクトップ環境と
+                                必須ツールを事前インストール済み。
                             </p>
+                            <ul class="feature-list">
+                                <li><strong>Flatpak</strong> - Universal packages</li>
+                                <li><strong>Tinyfetch</strong> - System info</li>
+                                <li><strong>btop</strong> - Resource monitor</li>
+                                <li><strong>Octoxbps</strong> - GUI package manager</li>
+                            </ul>
                         </div>
 
-                        <div id="game" class="tab-content">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎮</div>
                             <h3 style="color: var(--pink); margin-bottom: 15px">
-                                Performance Ready
+                                <span class="en">Gaming Ready</span
+                                ><span class="es">Listo para Gaming</span
+                                ><span class="ja">ゲーミング対応</span>
                             </h3>
                             <p class="en">
-                                Optimized for performance with full
-                                <strong>Vulkan</strong> support and
-                                preconfigured non-free Intel/AMD drivers,
-                                ensuring your hardware runs smoothly from the
-                                very first minute.
+                                Optimized for maximum performance with full
+                                <strong>Vulkan</strong> support and preconfigured
+                                non-free Intel/AMD drivers for seamless gaming
+                                from day one.
                             </p>
                             <p class="es">
-                                Optimizado para el rendimiento con soporte
-                                completo para <strong>Vulkan</strong> y drivers
-                                non-free de Intel/AMD preconfigurados,
-                                asegurando que tu hardware funcione sin
-                                problemas desde el primer minuto.
+                                Optimizado para máximo rendimiento con soporte
+                                completo <strong>Vulkan</strong> y drivers
+                                non-free de Intel/AMD preconfigurados para
+                                gaming sin problemas desde el primer día.
                             </p>
                             <p class="ja">
-                                完全な<strong>Vulkan</strong>サポートと、
-                                事前設定された Intel/AMD 用 non-free ドライバーによりパフォーマンス最適化。
-                                ハードウェアが最初の瞬間からスムーズに動作します。
+                                完全な<strong>Vulkan</strong>サポートと、事前設定された
+                                Intel/AMD 用 non-free ドライバーで、初日からシームレスな
+                                ゲーミング体験を提供。
                             </p>
+                            <ul class="feature-list">
+                                <li>Full Vulkan API support</li>
+                                <li>Pre-configured GPU drivers</li>
+                                <li>Optimized performance settings</li>
+                                <li>Ready for Steam & Lutris</li>
+                            </ul>
                         </div>
 
-                        <div id="install" class="tab-content">
+                        <div class="feature-card">
+                            <div class="feature-icon">⚙️</div>
                             <h3 style="color: var(--pink); margin-bottom: 15px">
-                                Kasha Installer &amp; Post-Install
+                                <span class="en">Kasha Installer</span
+                                ><span class="es">Instalador Kasha</span
+                                ><span class="ja">Kasha インストーラー</span>
                             </h3>
                             <p class="en">
-                                Our custom installer simplifies the Void Linux
-                                installation process (user, network,
-                                partitions). Once installed, a built-in
-                                <strong
-                                    >post-install application installer</strong
-                                >
-                                allows you to automatically configure the system
-                                with one click for video editing, music
-                                production, design, gaming, office work, and
-                                more.
+                                Custom installer that simplifies Void Linux setup.
+                                Includes a powerful <strong>post-install assistant</strong>
+                                for one-click configuration of specialized workflows.
                             </p>
                             <p class="es">
-                                Nuestro instalador personalizado simplifica el
-                                proceso de instalación de Void Linux (usuario,
-                                red, particiones). Una vez instalado, un
-                                <strong
-                                    >instalador de aplicaciones
-                                    post-instalación</strong
-                                >
-                                integrado te permite configurar el sistema
-                                automáticamente con un clic para edición de
-                                video, producción musical, diseño, gaming,
-                                ofimática y más.
+                                Instalador personalizado que simplifica la configuración
+                                de Void Linux. Incluye un potente
+                                <strong>asistente post-instalación</strong> para
+                                configuración con un clic de flujos especializados.
                             </p>
                             <p class="ja">
-                                カスタムインストーラーが Void Linux のインストールプロセス
-                                （ユーザー、ネットワーク、パーティション）を簡素化。
-                                インストール後、内蔵の<strong>ポストインストールアプリケーションインストーラー</strong>
-                                で、ビデオ編集、音楽制作、デザイン、ゲーミング、オフィス作業などのために
-                                ワンクリックでシステムを自動設定できます。
+                                Void Linux のセットアップを簡素化するカスタムインストーラー。
+                                専門的なワークフローのワンクリック設定に対応した強力な
+                                <strong>ポストインストールアシスタント</strong>を搭載。
                             </p>
+                            <ul class="feature-list">
+                                <li>Easy user & network setup</li>
+                                <li>Automatic partitioning</li>
+                                <li>One-click app categories</li>
+                                <li>Video, Music, Design, Gaming & more</li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <div id="credits" class="tab-content">
-                            <h3 style="color: var(--pink); margin-bottom: 10px">
-                                Neko-Void
-                            </h3>
-                            <p class="en">
-                                Neko-Void is an unofficial Void Linux respin. It
-                                currently features a preconfigured MATE desktop
-                                environment (our main edition, though other ISOs
-                                with more desktops will be created) with
-                                selected software for a complete experience. It
-                                includes a powerful post-install assistant to
-                                tailor the system to your needs (gaming, design,
-                                music production, etc.), plus pre-installed
-                                Flatpak, Octoxbps, Tinyfetch, and btop. All
-                                backed with full Vulkan and Pipewire support.
-                            </p>
-                            <p class="es">
-                                Neko-Void es un respin no oficial de Void Linux.
-                                Actualmente, presenta un entorno de escritorio
-                                MATE preconfigurado (nuestra edición principal,
-                                aunque se crearán otras ISOs con más
-                                escritorios) con software seleccionado para
-                                ofrecer una experiencia completa. Incluye un
-                                potente asistente post-instalación para adaptar
-                                el sistema a tus necesidades (gaming, diseño,
-                                producción musical, etc.), además de contar con
-                                Flatpak, Octoxbps, Tinyfetch y btop
-                                preinstalados. Todo respaldado con soporte
-                                completo para Vulkan y Pipewire.
-                            </p>
-                            <p class="ja">
-                                Neko-Void は Void Linux の非公式レスピンです。
-                                現在、事前設定された MATE デスクトップ環境を特徴とし
-                                （これがメインエディションで、他のデスクトップ環境付き ISO も作成予定）、
-                                完全な体験のための選択済みソフトウェアを搭載。
-                                ゲーミング、デザイン、音楽制作など、ユーザーのニーズに合わせて
-                                システムをカスタマイズできる強力なポストインストールアシスタント、
-                                さらに Flatpak、Octoxbps、Tinyfetch、btop が事前インストールされています。
-                                すべて Vulkan と Pipewire の完全サポートにより支えられています。
-                            </p>
-
-                            <div class="credits-grid">
-                                <div>
-                                    <h4 style="color: var(--cyan)">
-                                        <span class="en">Developer</span
-                                        ><span class="es">Desarrollador</span
-                                        ><span class="ja">開発者</span>
-                                    </h4>
-                                    <p>Javierc</p>
-                                </div>
-                                <div>
-                                    <h4 style="color: var(--cyan)">
-                                        <span class="en">Designer</span
-                                        ><span class="es">Diseñador</span
-                                        ><span class="ja">デザイナー</span>
-                                    </h4>
-                                    <p>Hikawa</p>
-                                </div>
-                                <div>
-                                    <h4 style="color: var(--cyan)">Sponsor</h4>
-                                    <p>S. A.</p>
-                                </div>
-                                <div>
-                                    <h4 style="color: var(--cyan)">
-                                        <span class="en">Artists</span
-                                        ><span class="es">Artistas</span
-                                        ><span class="ja">アーティスト</span>
-                                    </h4>
-                                    <p>Moony&lt;3 &amp; Era_dark_knight</p>
-                                </div>
+                    <!-- Credits Section -->
+                    <div class="credits-section">
+                        <h3 style="color: var(--cyan); margin-bottom: 25px; text-align: center;">
+                            <span class="en">Credits</span
+                            ><span class="es">Créditos</span
+                            ><span class="ja">クレジット</span>
+                        </h3>
+                        <div class="credits-grid">
+                            <div class="credit-item">
+                                <span class="credit-emoji">👨‍💻</span>
+                                <h4 style="color: var(--cyan)">
+                                    <span class="en">Developer</span
+                                    ><span class="es">Desarrollador</span
+                                    ><span class="ja">開発者</span>
+                                </h4>
+                                <p>Javierc</p>
                             </div>
+                            <div class="credit-item">
+                                <span class="credit-emoji">🎨</span>
+                                <h4 style="color: var(--cyan)">
+                                    <span class="en">Designer</span
+                                    ><span class="es">Diseñador</span
+                                    ><span class="ja">デザイナー</span>
+                                </h4>
+                                <p>Hikawa</p>
+                            </div>
+                            <div class="credit-item">
+                                <span class="credit-emoji">💼</span>
+                                <h4 style="color: var(--cyan)">Sponsor</h4>
+                                <p>S. A.</p>
+                            </div>
+                            <div class="credit-item">
+                                <span class="credit-emoji">🖌️</span>
+                                <h4 style="color: var(--cyan)">
+                                    <span class="en">Artists</span
+                                    ><span class="es">Artistas</span
+                                    ><span class="ja">アーティスト</span>
+                                </h4>
+                                <p>Moony&lt;3 &amp; Era_dark_knight</p>
+                            </div>
+                        </div>
+                    </div>
 
-                            <h4 style="color: var(--pink); margin-bottom: 10px">
+                    <!-- About Section -->
+                    <div class="about-section">
+                        <div class="about-block">
+                            <h4 style="color: var(--pink); margin-bottom: 15px">
                                 <span class="en">Why it was created</span
                                 ><span class="es">Por qué se creó</span
                                 ><span class="ja">作成理由</span>
                             </h4>
-                            <p class="en" style="margin-bottom: 20px">
-                                The project originally started as a personal
-                                hobby. Over time, it evolved into a structured
-                                project aimed at offering an easy-to-install and
-                                user-friendly Void Linux version for the end
-                                user.
+                            <p class="en">
+                                The project originally started as a personal hobby.
+                                Over time, it evolved into a structured project aimed
+                                at offering an easy-to-install and user-friendly
+                                Void Linux version for the end user.
                             </p>
-                            <p class="es" style="margin-bottom: 20px">
-                                El proyecto se originó inicialmente como un
-                                hobby personal. Con el tiempo, evolucionó hasta
-                                convertirse en un proyecto estructurado con el
-                                objetivo de ofrecer una versión de Void Linux
-                                que sea fácil de instalar y utilizar para el
-                                usuario final.
+                            <p class="es">
+                                El proyecto se originó inicialmente como un hobby personal.
+                                Con el tiempo, evolucionó hasta convertirse en un proyecto
+                                estructurado con el objetivo de ofrecer una versión de
+                                Void Linux fácil de instalar y utilizar para el usuario final.
                             </p>
-                            <p class="ja" style="margin-bottom: 20px">
+                            <p class="ja">
                                 このプロジェクトは元々個人的な趣味として始まりました。
                                 時を経て、エンドユーザー向けに簡単にインストールできて
                                 使いやすい Void Linux バージョンを提供することを目的とした
                                 構造化されたプロジェクトへと進化しました。
                             </p>
-
-                            <h4 style="color: var(--pink); margin-bottom: 10px">
+                        </div>
+                        <div class="about-block">
+                            <h4 style="color: var(--pink); margin-bottom: 15px">
                                 <span class="en">Target Audience</span
                                 ><span class="es">Público dirigido</span
                                 ><span class="ja">対象ユーザー</span>
@@ -428,15 +364,14 @@
                                 This distribution is aimed at users who want a
                                 lightweight and robust operating system, easily
                                 customizable for their specific workflow without
-                                the usual complications of a manual setup from
-                                scratch.
+                                the usual complications of a manual setup from scratch.
                             </p>
                             <p class="es">
-                                Esta distribución está dirigida a usuarios que
-                                desean un sistema operativo ligero y robusto,
-                                fácilmente adaptable a su flujo de trabajo
-                                específico sin las complicaciones habituales de
-                                una configuración manual desde cero.
+                                Esta distribución está dirigida a usuarios que desean
+                                un sistema operativo ligero y robusto, fácilmente
+                                adaptable a su flujo de trabajo específico sin las
+                                complicaciones habituales de una configuración manual
+                                desde cero.
                             </p>
                             <p class="ja">
                                 このディストリビューションは、軽量で堅牢なオペレーティングシステムを求め、
