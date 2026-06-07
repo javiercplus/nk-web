@@ -247,7 +247,7 @@ const NetworkManager = {
                     btn.innerHTML = `<span>${downloadText}</span>`;
                     
                     // Then update classes and enable
-                    btn.className = 'btn-main btn-outline';
+                    btn.className = 'btn-edition btn-outline';
                     btn.disabled = false;
                     const statusText = btn.querySelector('.status-text');
                     if (statusText) statusText.style.display = 'none';
@@ -269,15 +269,15 @@ const NetworkManager = {
         const btn = document.getElementById(`flavor-${flavorId}`);
         if (!btn) return;
         
-        const card = btn.closest('.edition-card');
+        const card = btn.closest('.edition-item');
         if (!card) return;
 
         // Check if hash element already exists
-        let hashEl = card.querySelector('.hash-text');
+        let hashEl = card.querySelector('.hash-text-inline');
         if (!hashEl) {
             hashEl = document.createElement('span');
             hashEl.id = `hash-${flavorId}`;
-            hashEl.className = 'hash-text';
+            hashEl.className = 'hash-text-inline';
             hashEl.title = I18nManager.t('downloads.hash_tooltip') || 'Click to copy';
             hashEl.style.cursor = 'pointer';
             btn.parentNode.insertBefore(hashEl, btn.nextSibling);

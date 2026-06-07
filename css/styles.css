@@ -209,8 +209,8 @@ body.lang-ja .es { display: none !important; }
 }
 
 /* --- MAIN CONTENT --- */
-main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 0; position: relative; overflow: hidden; }
-.app-section { display: none !important; position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden; padding-top: 80px; }
+main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px; position: relative; overflow: hidden; }
+.app-section { display: none !important; position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden; padding-top: 0; }
 .app-section.active { display: block !important; animation: fadeIn 0.4s ease-out forwards; }
 #inicio.app-section.active { display: flex !important; flex-direction: column; }
 @keyframes fadeIn {
@@ -1041,8 +1041,8 @@ details[open] summary {
 
 .edition-actions {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row-reverse;
+    align-items: center;
     gap: 12px;
     min-width: 200px;
 }
@@ -1111,6 +1111,7 @@ details[open] summary {
     border: 1px solid var(--divider);
     border-radius: 4px;
     max-width: 280px;
+    word-break: break-all;
 }
 
 .hash-text-inline:hover {
@@ -1128,6 +1129,7 @@ details[open] summary {
     }
     
     .edition-actions {
+        flex-direction: column;
         align-items: flex-start;
         width: 100%;
         min-width: auto;
