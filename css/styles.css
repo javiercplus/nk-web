@@ -344,8 +344,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
 /* --- DETAILS / ACCORDION --- */
 details {
     background: transparent;
-    border-top: 1px solid var(--divider);
-    border-bottom: 1px solid var(--divider);
+    border: 1px solid var(--divider);
     margin: 0;
     transition: background var(--transition-fast);
 }
@@ -356,6 +355,7 @@ details[open] {
 
 details + details {
     border-top: none;
+    margin-top: -1px;
 }
 
 summary {
