@@ -1,6 +1,6 @@
 /* --- VARIABLES GLOBALES --- */
 :root {
-    --bg-color: #1e1e2e; /* Fondo más profundo y moderno */
+    --bg-color: #1e1e2e; 
     --surface: #25263a;
     --current-line: #313244;
     --selection: #45475a;
@@ -45,7 +45,7 @@ h1, h2, h3, h4 {
 /* Scrollbar personalizado */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-color); }
-::-webkit-scrollbar-thumb { background: var(--selection); border-radius: 5px; }
+::-webkit-scrollbar-thumb { background: var(--selection); border-radius: 8px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--comment); }
 
 /* --- SISTEMA DE IDIOMAS --- */
@@ -62,7 +62,7 @@ body.lang-ja .es { display: none !important; }
     gap: 4px;
     background: rgba(30, 30, 46, 0.6);
     padding: 6px;
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -74,7 +74,7 @@ body.lang-ja .es { display: none !important; }
     font-family: 'Fira Code', monospace; 
     font-size: 0.85rem; 
     padding: 8px 14px; 
-    border-radius: 8px; 
+    border-radius: 8px;
     transition: var(--transition-fast); 
 }
 .lang-btn.active { 
@@ -89,8 +89,8 @@ body.lang-ja .es { display: none !important; }
     width: 100%; 
     height: 80px; 
     background: rgba(30, 30, 46, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(2px);
     position: fixed; 
     left: 0; 
     top: 0; 
@@ -135,7 +135,7 @@ body.lang-ja .es { display: none !important; }
     color: var(--comment);
     background: rgba(255, 255, 255, 0.05);
     padding: 4px 10px;
-    border-radius: 20px;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     font-family: 'Fira Code', monospace;
 }
@@ -148,7 +148,7 @@ body.lang-ja .es { display: none !important; }
     color: var(--comment); 
     text-decoration: none; 
     padding: 14px 18px; 
-    border-radius: 10px; 
+    border-radius: 8px;
     font-family: 'Fira Code', monospace; 
     font-size: 0.9rem; 
     transition: var(--transition-fast); 
@@ -223,7 +223,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
     font-size: 0.85rem; 
     padding: 8px 20px; 
     background: rgba(255,255,255,0.03); 
-    border-radius: 8px; 
+    border-radius: 8px;
     border: 1px solid rgba(255,255,255,0.08); 
     transition: var(--transition-fast); 
     cursor: pointer; 
@@ -233,7 +233,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
 /* --- TABS --- */
 .tabs-wrapper { 
     background: var(--surface); 
-    border-radius: 16px; 
+    border-radius: 8px;
     overflow: hidden; 
     margin-bottom: 60px; 
     border: 1px solid rgba(255,255,255,0.05);
@@ -278,7 +278,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
 
 /* --- GALLERY --- */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 50px; }
-.gallery-item { border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.gallery-item { border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
 .gallery-item img { 
     width: 100%; 
     height: 100%;
@@ -292,10 +292,10 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
 /* --- DOWNLOADS --- */
 .download-cta { 
     background: rgba(30, 30, 46, 0.6); 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1px);
     padding: 80px 50px; 
     text-align: center; 
-    border-radius: 24px; 
+    border-radius: 8px;
     margin: 60px 0; 
     border: 1px solid rgba(255,255,255,0.05); 
 }
@@ -313,7 +313,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
 .edition-card {
     background: rgba(37, 38, 58, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
+    border-radius: 8px;
     padding: 25px 20px;
     display: flex;
     flex-direction: column;
@@ -346,7 +346,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
     font-size: 0.65rem;
     font-family: 'Fira Code', monospace;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: 8px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 600;
@@ -368,7 +368,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
 
 .btn-main { 
     padding: 16px 35px; 
-    border-radius: 12px; 
+    border-radius: 8px;
     font-weight: 700; 
     transition: var(--transition-smooth); 
     display: flex; 
@@ -426,7 +426,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
     text-align: center; 
     padding: 10px;
     background: rgba(0,0,0,0.2);
-    border-radius: 6px;
+    border-radius: 8px;
 }
 .hash-text:hover { color: var(--cyan); background: rgba(0,0,0,0.4); }
 
@@ -437,7 +437,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
     margin: 40px 0; 
     padding: 30px; 
     background: rgba(0,0,0,0.15); 
-    border-radius: 12px; 
+    border-radius: 8px;
     border: 1px solid rgba(255,255,255,0.03);
 }
 
@@ -446,7 +446,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
     display: none;
     position: absolute;
     background-color: rgba(49, 50, 68, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1px);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -459,7 +459,7 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
     color: var(--foreground);
     font-size: 0.9rem;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: var(--transition-fast);
 }
 .context-menu-item:hover { background-color: var(--selection); color: var(--green); }
@@ -470,14 +470,14 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
     z-index: 10010;
     left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(17, 17, 27, 0.9);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(2px);
     align-items: center;
     justify-content: center;
 }
 .lightbox-content {
     max-width: 90%;
     max-height: 85vh;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     animation: zoomIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
