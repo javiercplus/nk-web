@@ -122,8 +122,31 @@ const UIManager = {
                 if (targetSection) {
                     targetSection.classList.add('active');
                 }
+                
+                // Close mobile menu when clicking a nav link
+                this.closeMobileMenu();
             });
         });
+    },
+
+    toggleMobileMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        
+        if (navLinks && menuToggle) {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+    },
+
+    closeMobileMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        
+        if (navLinks && menuToggle) {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
     },
 
     async setLanguage(lang) {
@@ -163,6 +186,7 @@ const UIManager = {
     exposeGlobals() {
         window.setLang = this.setLanguage.bind(this);
         window.openTab = this.openTab.bind(this);
+        window.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     }
 };
 
