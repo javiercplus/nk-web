@@ -270,9 +270,18 @@ const UIManager = {
         event.currentTarget.classList.add('active');
     },
 
+    switchTab(targetId) {
+        // Find the nav link for the target section and click it
+        const navLink = document.querySelector(`.nav-link[data-target="${targetId}"]`);
+        if (navLink) {
+            navLink.click();
+        }
+    },
+
     exposeGlobals() {
         window.setLang = this.setLanguage.bind(this);
         window.openTab = this.openTab.bind(this);
+        window.switchTab = this.switchTab.bind(this);
         window.toggleMobileMenu = this.toggleMobileMenu.bind(this);
         window.closeMobileMenu = this.closeMobileMenu.bind(this);
     }
