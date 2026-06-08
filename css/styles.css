@@ -56,50 +56,212 @@ h1, h2, h3, h4 {
 body.lang-es .en { display: none !important; }
 body.lang-en .es { display: none !important; }
 body.lang-en .ja { display: none !important; }
-body.lang-es .en { display: none !important; }
 body.lang-es .ja { display: none !important; }
 body.lang-ja .en { display: none !important; }
 body.lang-ja .es { display: none !important; }
 
-.lang-switch {
-    display: flex;
-    gap: 2px;
-    background: transparent;
-    padding: 0;
-    border-bottom: 1px solid var(--divider-strong);
+/* --- LANGUAGE DROPDOWN (Desktop) --- */
+.lang-dropdown {
+    position: relative;
+    margin-left: 12px;
+    z-index: 1100;
 }
 
-.lang-btn {
+.lang-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--divider-strong);
+    border-radius: 0;
+    color: var(--comment);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+}
+
+.lang-dropdown-trigger:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--green);
+    color: var(--foreground);
+    box-shadow: 0 0 16px rgba(166, 227, 161, 0.1);
+}
+
+.lang-dropdown.open .lang-dropdown-trigger {
+    background: rgba(166, 227, 161, 0.08);
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.lang-globe-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+}
+
+.lang-dropdown-trigger:hover .lang-globe-icon,
+.lang-dropdown.open .lang-globe-icon {
+    opacity: 1;
+}
+
+.lang-current {
+    font-weight: 500;
+}
+
+.lang-chevron {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.lang-dropdown.open .lang-chevron {
+    transform: rotate(180deg);
+    opacity: 0.8;
+}
+
+/* Dropdown menu */
+.lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    background: rgba(37, 38, 58, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--divider-strong);
+    border-radius: 0;
+    padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px) scale(0.97);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    pointer-events: none;
+}
+
+.lang-dropdown.open .lang-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
     background: transparent;
     border: none;
+    border-radius: 0;
+    color: var(--comment);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    text-align: left;
+}
+
+.lang-option:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--foreground);
+}
+
+.lang-option.active {
+    background: rgba(166, 227, 161, 0.08);
+    color: var(--green);
+}
+
+.lang-flag {
+    font-size: 1.15em;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.lang-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.lang-code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+
+.lang-check {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    color: var(--green);
+}
+
+.lang-check svg {
+    width: 14px;
+    height: 14px;
+}
+
+.lang-option.active .lang-check {
+    opacity: 1;
+}
+
+/* --- LANGUAGE PILLS (Mobile) --- */
+.lang-switch-inline {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    padding: 0;
+}
+
+.lang-btn-pill {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--divider-strong);
+    border-radius: 0;
     color: var(--comment);
     cursor: pointer;
     font-family: 'Fira Code', monospace;
-    font-size: 0.8rem;
-    padding: 10px 16px;
-    transition: var(--transition-fast);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    position: relative;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    transition: all var(--transition-fast);
 }
-.lang-btn::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--green);
-    transform: scaleX(0);
-    transition: transform var(--transition-fast);
+
+.lang-btn-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--foreground);
+    border-color: rgba(255, 255, 255, 0.15);
 }
-.lang-btn.active {
+
+.lang-btn-pill.active {
+    background: linear-gradient(135deg, rgba(166, 227, 161, 0.15), rgba(137, 220, 235, 0.1));
+    border-color: var(--green);
     color: var(--green);
+    box-shadow: 0 0 12px rgba(166, 227, 161, 0.15);
 }
-.lang-btn.active::after {
-    transform: scaleX(1);
+
+.lang-btn-pill .lang-flag {
+    font-size: 1em;
 }
-.lang-btn:hover:not(.active) { color: var(--foreground); }
+
+/* Hide mobile lang switch on desktop, hide desktop dropdown on mobile */
+.lang-switch-mobile { display: none !important; }
 
 /* --- NAVBAR --- */
 .navbar {
@@ -961,10 +1123,10 @@ details[open] summary {
         padding-bottom: 0;
     }
     .navbar-left { gap: 10px; width: 100%; justify-content: space-between; margin-bottom: 0; }
-    .navbar-right { position: absolute; top: 15px; right: 20px; }
     .navbar-logo-img { width: 34px; }
     .navbar-brand span { font-size: 1rem; }
     .version-badge { display: none; }
+    .lang-dropdown { margin-left: auto; }
     .nav-links {
         width: 100%;
         overflow-x: auto;
@@ -997,11 +1159,10 @@ details[open] summary {
     .edition-card summary { padding: 12px 14px; font-size: 0.8rem; }
     .edition-card .details-content { padding: 14px; font-size: 0.8rem; }
     
-    /* Lang buttons in mobile menu for very small screens */
-    .lang-switch-mobile .lang-btn {
-        padding: 8px 12px;
-        font-size: 0.75rem;
-        min-width: 45px;
+    /* Lang pill buttons for very small screens */
+    .lang-btn-pill {
+        padding: 6px 10px;
+        font-size: 0.72rem;
     }
 }
 
@@ -1252,29 +1413,23 @@ details[open] summary {
         right: 20px;
     }
     
-    /* Lang switch inside mobile menu - styled as part of nav */
+    /* Lang switch inside mobile menu */
     .lang-switch-mobile {
+        display: block !important;
         width: 100%;
         padding: 15px 20px;
         border-top: 1px solid var(--divider);
         margin-top: 10px;
     }
     
-    .lang-switch-mobile .lang-switch {
+    .lang-switch-mobile .lang-switch-inline {
         display: flex;
         justify-content: center;
-        gap: 5px;
-        border-bottom: none;
+        gap: 8px;
     }
     
-    .lang-switch-mobile .lang-btn {
-        padding: 10px 16px;
-        font-size: 0.8rem;
-        min-width: 50px;
-    }
-    
-    /* Remove old navbar-right styles for mobile */
-    .navbar-right {
+    /* Hide desktop dropdown on mobile */
+    .lang-dropdown {
         display: none;
     }
     

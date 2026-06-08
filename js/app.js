@@ -1,8 +1,4 @@
-/* Neko-Void — app.js (Modularized i18n) */
-
-// Import translations (will be loaded dynamically)
-let translations = {};
-let currentLang = 'en';
+/* Neko-Void — app.js (Fixed & Modularized) */
 
 /**
  * Detecta automáticamente el idioma basado en la zona horaria del navegador
@@ -10,9 +6,8 @@ let currentLang = 'en';
  */
 function detectLanguageFromTimezone() {
     try {
-        // Obtener la zona horaria del navegador
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        
+
         // Mapeo de zonas horarias a idiomas
         const timezoneToLanguage = {
             // Zonas horarias de habla hispana
@@ -25,7 +20,7 @@ function detectLanguageFromTimezone() {
             'America/Caracas': 'es',
             'America/Guatemala': 'es',
             'America/San_Salvador': 'es',
-            'America/Tegucigalpas': 'es',
+            'America/Tegucigalpa': 'es',
             'America/Managua': 'es',
             'America/Costa_Rica': 'es',
             'America/Panama': 'es',
@@ -38,24 +33,16 @@ function detectLanguageFromTimezone() {
             'Europe/Madrid': 'es',
             'Atlantic/Canary': 'es',
             'Africa/Ceuta': 'es',
-            
+
             // Zonas horarias de Japón
             'Asia/Tokyo': 'ja',
-            'Asia/Osaka': 'ja',
-            'Asia/Nagoya': 'ja',
-            'Asia/Sapporo': 'ja',
-            'Asia/Fukuoka': 'ja',
-            
-            // Por defecto, inglés para otras zonas
         };
-        
-        // Buscar coincidencia exacta o parcial de la zona horaria
-        for (const [tz, lang] of Object.entries(timezoneToLanguage)) {
-            if (timeZone === tz || timeZone.startsWith(tz.split('/')[0])) {
-                return lang;
-            }
+
+        // Buscar coincidencia exacta
+        if (timezoneToLanguage[timeZone]) {
+            return timezoneToLanguage[timeZone];
         }
-        
+
         // Si no hay coincidencia, usar el idioma del navegador como fallback
         const browserLang = navigator.language || navigator.userLanguage;
         if (browserLang) {
@@ -64,8 +51,7 @@ function detectLanguageFromTimezone() {
                 return langCode;
             }
         }
-        
-        // Default a inglés
+
         return 'en';
     } catch (error) {
         console.warn('Error detecting language from timezone:', error);
@@ -73,107 +59,49 @@ function detectLanguageFromTimezone() {
     }
 }
 
-const I18nManager = {
-    async init(lang = 'en') {
-        currentLang = lang;
-        await this.loadTranslations(lang);
-        this.applyTranslations();
-    },
-
-    async loadTranslations(lang) {
-        try {
-            const response = await fetch(`./i18n/${lang}.json`);
-            if (!response.ok) throw new Error(`Failed to load ${lang}.json`);
-            translations = await response.json();
-        } catch (error) {
-            console.error('Error loading translations:', error);
-            // Fallback to English
-            if (lang !== 'en') {
-                const response = await fetch('./i18n/en.json');
-                translations = await response.json();
-            }
-        }
-    },
-
-    t(path) {
-        return path.split('.').reduce((obj, key) => obj?.[key], translations);
-    },
-
-    applyTranslations() {
-        // Update all elements with data-i18n attribute
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            const value = this.t(key);
-            if (value !== undefined) {
-                el.innerHTML = value;
-            }
-        });
-
-        // Update version tag
-        const versionTag = document.getElementById('version-tag');
-        if (versionTag && translations.version) {
-            versionTag.textContent = `${translations.version.prefix}${translations.version.loading}`;
-        }
-
-        // Update hash tooltips
-        const tooltip = this.t('downloads.hash_tooltip') || 'Click to copy';
-        document.querySelectorAll('.hash-text').forEach(el => {
-            el.title = tooltip;
-        });
-    }
-};
-
-const SecurityManager = {
-    init() {
-        console.log("Security restrictions disabled.");
-    },
-
-    preventDevToolsKeys() {},
-    detectDevToolsResize() {},
-    startAntiDebugger() {}
-};
-
-const ContextMenuManager = {
-    init() {
-        this.menu = document.getElementById('customContextMenu');
-        if (this.menu) this.menu.style.display = 'none';
-    },
-
-    bindEvents() {}
-};
-
 const UIManager = {
     currentLang: 'en',
 
-    async init() {
+    init() {
         // Detectar idioma automáticamente basado en la zona horaria del navegador
         const detectedLang = detectLanguageFromTimezone();
         console.log(`Detected language from timezone: ${detectedLang}`);
-        
-        await I18nManager.init(detectedLang);
+
         this.currentLang = detectedLang;
-        
-        // Actualizar UI con el idioma detectado
+
+        // Aplicar idioma detectado vía clases CSS
         this.updateLanguageUI(detectedLang);
-        
+
         this.initLightbox();
         this.initNavTabs();
+        this.initLangDropdown();
         this.exposeGlobals();
     },
-    
+
     /**
-     * Actualiza la interfaz de usuario para reflejar el idioma seleccionado
+     * Actualiza la interfaz de usuario para reflejar el idioma seleccionado.
+     * El sistema de idiomas funciona puramente con clases CSS en el body
+     * (lang-en, lang-es, lang-ja) que muestran/ocultan spans con esas clases.
      * @param {string} lang - Código de idioma ('en', 'es', 'ja')
      */
     updateLanguageUI(lang) {
         // Update body class for CSS-based language switching
         document.body.classList.remove('lang-en', 'lang-es', 'lang-ja');
         document.body.classList.add(`lang-${lang}`);
-        
-        // Update button states
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-        const activeBtn = document.getElementById(`btn-${lang}`);
-        if (activeBtn) activeBtn.classList.add('active');
+
+        // Update desktop dropdown options
+        document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
+        const activeDesktop = document.getElementById(`btn-${lang}`);
+        if (activeDesktop) activeDesktop.classList.add('active');
+
+        // Update mobile pill buttons
+        document.querySelectorAll('.lang-btn-pill').forEach(btn => btn.classList.remove('active'));
+        const activeMobile = document.getElementById(`btn-${lang}-mobile`);
+        if (activeMobile) activeMobile.classList.add('active');
+
+        // Update dropdown trigger label
+        const label = document.getElementById('lang-current-label');
+        if (label) label.textContent = lang.toUpperCase();
     },
 
     initLightbox() {
@@ -190,7 +118,12 @@ const UIManager = {
             });
         });
 
-        closeBtn?.addEventListener('click', () => lightbox.style.display = 'none');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+        }
+
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) lightbox.style.display = 'none';
         });
@@ -203,19 +136,21 @@ const UIManager = {
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                
+
                 const targetId = link.getAttribute('data-target');
                 if (!targetId) return;
 
+                // Update active nav link
                 navLinks.forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
 
+                // Update active section
                 sections.forEach(sec => sec.classList.remove('active'));
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.classList.add('active');
                 }
-                
+
                 // Close mobile menu when clicking a nav link
                 this.closeMobileMenu();
             });
@@ -225,7 +160,7 @@ const UIManager = {
     toggleMobileMenu() {
         const navLinks = document.querySelector('.nav-links');
         const menuToggle = document.querySelector('.mobile-menu-toggle');
-        
+
         if (navLinks && menuToggle) {
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('active');
@@ -235,39 +170,49 @@ const UIManager = {
     closeMobileMenu() {
         const navLinks = document.querySelector('.nav-links');
         const menuToggle = document.querySelector('.mobile-menu-toggle');
-        
+
         if (navLinks && menuToggle) {
             navLinks.classList.remove('active');
             menuToggle.classList.remove('active');
         }
     },
 
-    async setLanguage(lang) {
+    setLanguage(lang) {
+        if (!['en', 'es', 'ja'].includes(lang)) return;
         this.currentLang = lang;
-        
-        // Actualizar UI con el nuevo idioma
         this.updateLanguageUI(lang);
+        this.closeLangDropdown();
+    },
 
-        // Load and apply new translations
-        await I18nManager.loadTranslations(lang);
-        I18nManager.applyTranslations();
+    initLangDropdown() {
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+    },
 
-        // Update hash tooltips
-        const tooltip = I18nManager.t('downloads.hash_tooltip') || 'Click to copy';
-        const hashXorg = document.getElementById('hash-xorg');
-        const hashXlibre = document.getElementById('hash-xlibre');
-        
-        if (hashXorg) hashXorg.title = tooltip;
-        if (hashXlibre) hashXlibre.title = tooltip;
+    toggleLangDropdown() {
+        const dropdown = document.getElementById('lang-dropdown');
+        if (dropdown) dropdown.classList.toggle('open');
+    },
+
+    closeLangDropdown() {
+        const dropdown = document.getElementById('lang-dropdown');
+        if (dropdown) dropdown.classList.remove('open');
     },
 
     openTab(event, targetId) {
         document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        
+
         const targetElement = document.getElementById(targetId);
         if (targetElement) targetElement.classList.add('active');
-        event.currentTarget.classList.add('active');
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add('active');
+        }
     },
 
     exposeGlobals() {
@@ -275,6 +220,8 @@ const UIManager = {
         window.openTab = this.openTab.bind(this);
         window.toggleMobileMenu = this.toggleMobileMenu.bind(this);
         window.closeMobileMenu = this.closeMobileMenu.bind(this);
+        window.toggleLangDropdown = this.toggleLangDropdown.bind(this);
+        window.closeLangDropdown = this.closeLangDropdown.bind(this);
     }
 };
 
@@ -293,7 +240,7 @@ const NetworkManager = {
 
             const xmlText = await response.text();
             const xmlDoc = new DOMParser().parseFromString(xmlText, 'text/xml');
-            
+
             this.updateVersion(xmlDoc);
             this.setupIsoLinks(xmlDoc);
         } catch (error) {
@@ -304,10 +251,10 @@ const NetworkManager = {
     updateVersion(xmlDoc) {
         const release = xmlDoc.querySelector('release');
         const versionTag = document.getElementById('version-tag');
-        
+
         if (release && versionTag) {
             const version = release.getAttribute('version');
-            versionTag.innerHTML = `<span class="en">v. ${version}</span><span class="es">v. ${version}</span>`;
+            versionTag.innerHTML = `<span class="en">v. ${version}</span><span class="es">v. ${version}</span><span class="ja">v. ${version}</span>`;
         }
     },
 
@@ -325,15 +272,19 @@ const NetworkManager = {
     bindDownloadButton(btnId, hashId, url, hash) {
         const btn = document.getElementById(btnId);
         const hashEl = document.getElementById(hashId);
-        
+
         if (btn) btn.onclick = () => window.open(url, '_blank');
-        
+
         if (hashEl) {
             hashEl.textContent = `SHA256: ${hash}`;
             hashEl.onclick = async () => {
-                await navigator.clipboard.writeText(hash);
-                hashEl.style.color = 'var(--green)';
-                setTimeout(() => hashEl.style.color = 'var(--comment)', 1000);
+                try {
+                    await navigator.clipboard.writeText(hash);
+                    hashEl.style.color = 'var(--green)';
+                    setTimeout(() => hashEl.style.color = 'var(--comment)', 1000);
+                } catch (err) {
+                    console.warn('Clipboard copy failed:', err);
+                }
             };
         }
     },
@@ -353,17 +304,19 @@ const NetworkManager = {
                 const btn = document.getElementById(`flavor-${id}`);
 
                 if (btn && url && url.length > 0) {
-                    // Update button text to only "Download" when enabled
-                    const downloadText = I18nManager.t('downloads.download_btn') || 'Download';
-                    
-                    btn.innerHTML = `<span>${downloadText}</span>`;
-                    
-                    // Then update classes and enable
+                    // Get the correct download text based on current language
+                    const downloadTexts = {
+                        en: 'Download',
+                        es: 'Descargar',
+                        ja: 'ダウンロード'
+                    };
+
+                    btn.innerHTML = `<span class="en">${downloadTexts.en}</span><span class="es">${downloadTexts.es}</span><span class="ja">${downloadTexts.ja}</span>`;
+
                     btn.className = 'btn-edition btn-outline';
                     btn.disabled = false;
-                    const statusText = btn.querySelector('.status-text');
-                    if (statusText) statusText.style.display = 'none';
-                    
+                    btn.style.cursor = 'pointer';
+
                     btn.onclick = () => window.open(url, '_blank');
 
                     // Add SHA256 hash display if available
@@ -380,7 +333,7 @@ const NetworkManager = {
     addFlavorHash(flavorId, hash) {
         const btn = document.getElementById(`flavor-${flavorId}`);
         if (!btn) return;
-        
+
         const card = btn.closest('.edition-item');
         if (!card) return;
 
@@ -390,24 +343,26 @@ const NetworkManager = {
             hashEl = document.createElement('span');
             hashEl.id = `hash-${flavorId}`;
             hashEl.className = 'hash-text-inline';
-            hashEl.title = I18nManager.t('downloads.hash_tooltip') || 'Click to copy';
+            hashEl.title = 'Click to copy';
             hashEl.style.cursor = 'pointer';
             btn.parentNode.insertBefore(hashEl, btn.nextSibling);
         }
 
         hashEl.textContent = `SHA256: ${hash}`;
         hashEl.onclick = async () => {
-            await navigator.clipboard.writeText(hash);
-            hashEl.style.color = 'var(--green)';
-            setTimeout(() => hashEl.style.color = '', 1000);
+            try {
+                await navigator.clipboard.writeText(hash);
+                hashEl.style.color = 'var(--green)';
+                setTimeout(() => hashEl.style.color = '', 1000);
+            } catch (err) {
+                console.warn('Clipboard copy failed:', err);
+            }
         };
     }
 };
 
-// Inicialización de la aplicación sin bloqueos
-document.addEventListener('DOMContentLoaded', async () => {
-    // SecurityManager.init(); // Desactivado
-    // ContextMenuManager.init(); // Desactivado para permitir menú nativo
-    await UIManager.init();
+// Inicialización de la aplicación
+document.addEventListener('DOMContentLoaded', () => {
+    UIManager.init();
     NetworkManager.loadDownloads();
 });

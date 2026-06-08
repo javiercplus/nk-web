@@ -42,7 +42,7 @@
                 </div>
             </div>
             
-            <!-- Mobile menu toggle button - RIGHT SIDE -->
+            <!-- Mobile menu toggle button -->
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -100,33 +100,62 @@
                         ><span class="ja">寄付</span>
                     </a>
                 </li>
-                <!-- Language switcher INSIDE mobile menu -->
+                <!-- Language switcher for mobile menu -->
                 <li class="nav-item lang-switch-mobile">
-                    <div class="lang-switch">
-                        <button
-                            id="btn-en"
-                            onclick="setLang('en'); closeMobileMenu()"
-                            class="lang-btn active"
-                        >
-                            EN
+                    <div class="lang-switch-inline">
+                        <button id="btn-en-mobile" onclick="setLang('en'); closeMobileMenu()" class="lang-btn-pill active" data-lang="en">
+                            <span class="lang-flag">🇺🇸</span> EN
                         </button>
-                        <button
-                            id="btn-es"
-                            onclick="setLang('es'); closeMobileMenu()"
-                            class="lang-btn"
-                        >
-                            ES
+                        <button id="btn-es-mobile" onclick="setLang('es'); closeMobileMenu()" class="lang-btn-pill" data-lang="es">
+                            <span class="lang-flag">🇪🇸</span> ES
                         </button>
-                        <button
-                            id="btn-ja"
-                            onclick="setLang('ja'); closeMobileMenu()"
-                            class="lang-btn"
-                        >
-                            JA
+                        <button id="btn-ja-mobile" onclick="setLang('ja'); closeMobileMenu()" class="lang-btn-pill" data-lang="ja">
+                            <span class="lang-flag">🇯🇵</span> JA
                         </button>
                     </div>
                 </li>
             </ul>
+
+            <!-- Desktop language dropdown -->
+            <div class="lang-dropdown" id="lang-dropdown">
+                <button class="lang-dropdown-trigger" id="lang-trigger" onclick="toggleLangDropdown()" aria-label="Change language">
+                    <svg class="lang-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M2 12h20"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <span class="lang-current" id="lang-current-label">EN</span>
+                    <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </button>
+                <div class="lang-dropdown-menu" id="lang-menu">
+                    <button class="lang-option active" id="btn-en" onclick="setLang('en')" data-lang="en">
+                        <span class="lang-flag">🇺🇸</span>
+                        <span class="lang-name">English</span>
+                        <span class="lang-code">EN</span>
+                        <span class="lang-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                    </button>
+                    <button class="lang-option" id="btn-es" onclick="setLang('es')" data-lang="es">
+                        <span class="lang-flag">🇪🇸</span>
+                        <span class="lang-name">Español</span>
+                        <span class="lang-code">ES</span>
+                        <span class="lang-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                    </button>
+                    <button class="lang-option" id="btn-ja" onclick="setLang('ja')" data-lang="ja">
+                        <span class="lang-flag">🇯🇵</span>
+                        <span class="lang-name">日本語</span>
+                        <span class="lang-code">JA</span>
+                        <span class="lang-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
         </nav>
 
         <main>
