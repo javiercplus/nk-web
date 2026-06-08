@@ -4,6 +4,75 @@
 let translations = {};
 let currentLang = 'en';
 
+/**
+ * Detecta automáticamente el idioma basado en la zona horaria del navegador
+ * @returns {string} Código de idioma detectado ('en', 'es', 'ja')
+ */
+function detectLanguageFromTimezone() {
+    try {
+        // Obtener la zona horaria del navegador
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        
+        // Mapeo de zonas horarias a idiomas
+        const timezoneToLanguage = {
+            // Zonas horarias de habla hispana
+            'America/Mexico_City': 'es',
+            'America/Bogota': 'es',
+            'America/Lima': 'es',
+            'America/Santiago': 'es',
+            'America/Argentina/Buenos_Aires': 'es',
+            'America/Montevideo': 'es',
+            'America/Caracas': 'es',
+            'America/Guatemala': 'es',
+            'America/San_Salvador': 'es',
+            'America/Tegucigalpas': 'es',
+            'America/Managua': 'es',
+            'America/Costa_Rica': 'es',
+            'America/Panama': 'es',
+            'America/Havana': 'es',
+            'America/Santo_Domingo': 'es',
+            'America/Puerto_Rico': 'es',
+            'America/La_Paz': 'es',
+            'America/Quito': 'es',
+            'America/Asuncion': 'es',
+            'Europe/Madrid': 'es',
+            'Atlantic/Canary': 'es',
+            'Africa/Ceuta': 'es',
+            
+            // Zonas horarias de Japón
+            'Asia/Tokyo': 'ja',
+            'Asia/Osaka': 'ja',
+            'Asia/Nagoya': 'ja',
+            'Asia/Sapporo': 'ja',
+            'Asia/Fukuoka': 'ja',
+            
+            // Por defecto, inglés para otras zonas
+        };
+        
+        // Buscar coincidencia exacta o parcial de la zona horaria
+        for (const [tz, lang] of Object.entries(timezoneToLanguage)) {
+            if (timeZone === tz || timeZone.startsWith(tz.split('/')[0])) {
+                return lang;
+            }
+        }
+        
+        // Si no hay coincidencia, usar el idioma del navegador como fallback
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang) {
+            const langCode = browserLang.split('-')[0].toLowerCase();
+            if (['en', 'es', 'ja'].includes(langCode)) {
+                return langCode;
+            }
+        }
+        
+        // Default a inglés
+        return 'en';
+    } catch (error) {
+        console.warn('Error detecting language from timezone:', error);
+        return 'en';
+    }
+}
+
 const I18nManager = {
     async init(lang = 'en') {
         currentLang = lang;
@@ -77,10 +146,34 @@ const UIManager = {
     currentLang: 'en',
 
     async init() {
-        await I18nManager.init('en');
+        // Detectar idioma automáticamente basado en la zona horaria del navegador
+        const detectedLang = detectLanguageFromTimezone();
+        console.log(`Detected language from timezone: ${detectedLang}`);
+        
+        await I18nManager.init(detectedLang);
+        this.currentLang = detectedLang;
+        
+        // Actualizar UI con el idioma detectado
+        this.updateLanguageUI(detectedLang);
+        
         this.initLightbox();
         this.initNavTabs();
         this.exposeGlobals();
+    },
+    
+    /**
+     * Actualiza la interfaz de usuario para reflejar el idioma seleccionado
+     * @param {string} lang - Código de idioma ('en', 'es', 'ja')
+     */
+    updateLanguageUI(lang) {
+        // Update body class for CSS-based language switching
+        document.body.classList.remove('lang-en', 'lang-es', 'lang-ja');
+        document.body.classList.add(`lang-${lang}`);
+        
+        // Update button states
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`btn-${lang}`);
+        if (activeBtn) activeBtn.classList.add('active');
     },
 
     initLightbox() {
@@ -152,14 +245,8 @@ const UIManager = {
     async setLanguage(lang) {
         this.currentLang = lang;
         
-        // Update body class for CSS-based language switching
-        document.body.classList.remove('lang-en', 'lang-es', 'lang-ja');
-        document.body.classList.add(`lang-${lang}`);
-        
-        // Update button states
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-        const activeBtn = document.getElementById(`btn-${lang}`);
-        if (activeBtn) activeBtn.classList.add('active');
+        // Actualizar UI con el nuevo idioma
+        this.updateLanguageUI(lang);
 
         // Load and apply new translations
         await I18nManager.loadTranslations(lang);
