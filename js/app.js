@@ -187,6 +187,7 @@ const UIManager = {
         window.setLang = this.setLanguage.bind(this);
         window.openTab = this.openTab.bind(this);
         window.toggleMobileMenu = this.toggleMobileMenu.bind(this);
+        window.closeMobileMenu = this.closeMobileMenu.bind(this);
     }
 };
 

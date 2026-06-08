@@ -118,6 +118,7 @@ body.lang-ja .es { display: none !important; }
     padding: 0 40px;
     border-bottom: 1px solid var(--divider);
     z-index: 1000;
+    flex-wrap: nowrap; /* Prevent wrapping on desktop */
 }
 .navbar-left {
     display: flex;
@@ -127,6 +128,28 @@ body.lang-ja .es { display: none !important; }
 .navbar-right {
     display: flex;
     align-items: center;
+}
+
+/* Mobile menu toggle - positioned on LEFT */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    order: 0; /* Ensure it's first on mobile */
+}
+
+.mobile-menu-toggle span {
+    width: 100%;
+    height: 2px;
+    background: var(--foreground);
+    transition: all 0.3s ease;
 }
 .navbar-brand {
     display: flex;
@@ -966,7 +989,6 @@ details[open] summary {
     .editions-grid { grid-template-columns: 1fr; }
     .download-col { max-width: 100%; }
     .tab-content { padding: 30px 0; }
-    .lang-btn { padding: 8px 12px; font-size: 0.75rem; }
     .gallery-grid { grid-template-columns: 1fr; }
     .btn-link { padding: 14px 18px; font-size: 0.8rem; }
     summary { padding: 16px 18px; font-size: 0.85rem; }
@@ -974,6 +996,13 @@ details[open] summary {
     .details-content { padding: 16px 18px; font-size: 0.85rem; }
     .edition-card summary { padding: 12px 14px; font-size: 0.8rem; }
     .edition-card .details-content { padding: 14px; font-size: 0.8rem; }
+    
+    /* Lang buttons in mobile menu for very small screens */
+    .lang-switch-mobile .lang-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        min-width: 45px;
+    }
 }
 
 /* --- NEW DOWNLOAD LIST LAYOUT --- */
@@ -1223,19 +1252,30 @@ details[open] summary {
         right: 20px;
     }
     
-    /* Lang switch compact */
-    .navbar-right {
-        position: absolute;
-        right: 15px;
-        top: 70px;
-        background: rgba(30, 30, 46, 0.98);
-        padding: 10px 15px;
-        border-bottom: 1px solid var(--divider);
+    /* Lang switch inside mobile menu - styled as part of nav */
+    .lang-switch-mobile {
+        width: 100%;
+        padding: 15px 20px;
+        border-top: 1px solid var(--divider);
+        margin-top: 10px;
     }
     
-    .lang-btn {
-        padding: 8px 12px;
-        font-size: 0.75rem;
+    .lang-switch-mobile .lang-switch {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        border-bottom: none;
+    }
+    
+    .lang-switch-mobile .lang-btn {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        min-width: 50px;
+    }
+    
+    /* Remove old navbar-right styles for mobile */
+    .navbar-right {
+        display: none;
     }
     
     /* Main content adjustments */
@@ -1491,8 +1531,24 @@ img {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
     .mobile-menu-toggle {
         display: flex;
+        order: 0; /* Keep it on the left */
+        margin-right: 15px;
+    }
+    
+    .navbar-left {
+        order: 1;
+        flex: 1;
+    }
+    
+    .nav-links {
+        order: 3;
     }
     
     .mobile-menu-toggle.active span:nth-child(1) {
