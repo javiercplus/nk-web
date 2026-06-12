@@ -40,6 +40,22 @@ body {
     height: 100vh;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/logoascii.png');
+    background-repeat: no-repeat;
+    background-position: right 1% bottom 15%;
+    background-size: min(800px, 60vw);
+    opacity: 0.24; /* Nivel de transparencia (15% visible) */
+    z-index: -1;
+    pointer-events: none;
+}
+
 h1, h2, h3, h4 {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
