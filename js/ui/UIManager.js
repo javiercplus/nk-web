@@ -12,7 +12,7 @@ export const UIManager = {
 
         this.updateLanguageUI(detectedLang);
         initTypewriter();
-        initQuoteHover();
+        initQuoteHover(this);
         initLightbox();
         this.initNavTabs();
         this.initLangDropdown();
@@ -68,10 +68,10 @@ export const UIManager = {
         if (!langDropdown) return;
         langDropdown.addEventListener('click', (e) => {
             e.stopPropagation();
-            langDropdown.classList.toggle('active');
+            langDropdown.classList.toggle('open');
         });
         document.addEventListener('click', () => {
-            langDropdown.classList.remove('active');
+            langDropdown.classList.remove('open');
         });
     },
 
@@ -91,7 +91,7 @@ export const UIManager = {
 
         this.updateLanguageUI(lang);
         const langDropdown = document.getElementById('lang-dropdown');
-        if(langDropdown) langDropdown.classList.remove('active');
+        if(langDropdown) langDropdown.classList.remove('open');
     },
 
     exposeGlobals() {
