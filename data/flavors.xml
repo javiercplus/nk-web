@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flavors>
+    <flavor id="xfce" sha256="c5ba8ccaa7b5ed6aa334f783fe3d297bcb050f224c315c6e0b3f11ac5dc5307c">https://javiercplus.github.io/neko-download/xfce/</flavor>
+    <flavor id="kde" sha256="9cb98e20f2d8d39a287140c3724afe93e45570844b2186bbc05edfa6cef59b42">https://javiercplus.github.io/neko-download/kde/</flavor>
+    <flavor id="sway-i3" sha256=".."></flavor>
+    <flavor id="hyprland" sha256=".."></flavor>
+    <flavor id="lxqt" sha256="30f4ac1733bec0126efb9af1da18475b5b3305a5b698344fc4a3a803db37022f">https://javiercplus.github.io/neko-download/lxqt/</flavor>
+    <flavor id="labwc-openbox" sha256=".."></flavor>
+    <flavor id="niri" sha256=".."></flavor>
+    <flavor id="icewm-jwm" sha256="1675051c118f2647f6a6c82f925a4942df0d120c4c1ae08d707ce7c2a8c7615d">https://javiercplus.github.io/neko-download/jwm/</flavor>
+</flavors>

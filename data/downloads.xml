@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neko_project>
+    <release version="rolling-b">
+        <iso id="link-xorg" sha256="ad00316746416b624eb39edc5e6fe7ae76d80dd49dfae4d64cf0dcedc8193749">https://javiercplus.github.io/neko-download/mate/</iso>
+        <iso id="link-xlibre" sha256="42d1dcdc9c8b0db97bcc4a4611224e63feaf39b9d72acf7f13b1c3d7872e1584">https://javiercplus.github.io/neko-download/matelibre/</iso>
+    </release>
+</neko_project>
