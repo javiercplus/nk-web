@@ -1,4 +1,4 @@
-# 🏛️ Neko Void Web - Architecture Overview
+#  Neko Void Web - Architecture Overview
 
 This document describes the high-level architecture of the Neko Void Web landing page.
 
