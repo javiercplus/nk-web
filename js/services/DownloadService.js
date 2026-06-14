@@ -117,7 +117,7 @@ export async function loadDownloadLinks() {
         if (button) {
             if (data.available && data.url) {
                 button.classList.remove('btn-disabled');
-                button.classList.add('btn-outline');
+                button.classList.add('btn-primary');
                 button.disabled = false;
                 button.innerHTML = `
                     <span class="en">Download</span>
