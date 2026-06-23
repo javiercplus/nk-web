@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flavors>
+    <flavor id="xfce" sha256="c5ba8ccaa7b5ed6aa334f783fe3d297bcb050f224c315c6e0b3f11ac5dc5307c">https://nekovoid.vercel.app/dd#xfce</flavor>
+    <flavor id="kde" sha256="207e0673d51166afdfb5349526206a80712273713390e8005d928c57b802174b">https://nekovoid.vercel.app/dd#kde</flavor>
+    <flavor id="sway-i3" sha256=".."></flavor>
+    <flavor id="openbox" sha256=".."></flavor>
+    <flavor id="lxqt" sha256="6ab7a2beb1e74d67ff862a556d92bdd409c815e566eeee48476d66dd1203dd9a">https://nekovoid.vercel.app/dd#lxqt</flavor>
+    <flavor id="labwc" sha256=".."></flavor>
+    <flavor id="niri" sha256="9e0c493891a810b0e0378d982981b2360e61d073eb03e04ba1ff0c98d0965405"></flavor>
+    <flavor id="icewm-jwm" sha256="c608d5a56d0ba850694ff263a12563131ef7ea7e9fa36780a0441086e2583bea">https://nekovoid.vercel.app/dd#icejwm</flavor>
+</flavors>
