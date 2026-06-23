@@ -2,6 +2,6 @@
 <neko_project>
     <release version="rolling-b">
         <iso id="link-xorg" sha256="22f7c2158ddf44a20768e93e3cdd874001b72db5565186ae95503c129908a1a8">https://nekovoid.vercel.app/dd/mate</iso>
-        <iso id="link-xlibre" sha256="883b3e8ef2ef7e10432f501df391507ac2b161e26f67e6b7f98c9b713fd47a72">https://nekovoid.vercel.app/dd/matelibre</iso>
+        <iso id="link-xlibre" sha256="c53ddaa9108699a1e0b896c9f6d2d9fcdfc5ea1ac300dc3b6065d3d5f480d056">https://nekovoid.vercel.app/dd/matelibre</iso>
     </release>
 </neko_project>
