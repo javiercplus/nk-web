@@ -5,7 +5,7 @@
     <flavor id="sway-i3" sha256=".."></flavor>
     <flavor id="openbox" sha256=".."></flavor>
     <flavor id="lxqt" sha256="6ab7a2beb1e74d67ff862a556d92bdd409c815e566eeee48476d66dd1203dd9a">https://nekovoid.vercel.app/dd#lxqt</flavor>
-    <flavor id="labwc" sha256=".."></flavor>
+    <flavor id="labwc" sha256="0967673067b2b7ad62202147eae6ab0746c600c7b42879d6f76c59f35279c214">https://nekovoid.vercel.app/dd#labwc</flavor>
     <flavor id="niri" sha256="074d32c04044bb75966cf469850b77613f3c93c9a3efdf7c71a89bb1a5d861b7">https://nekovoid.vercel.app/dd#niri</flavor>
     <flavor id="icewm-jwm" sha256="c608d5a56d0ba850694ff263a12563131ef7ea7e9fa36780a0441086e2583bea">https://nekovoid.vercel.app/dd#icejwm</flavor>
 </flavors>
