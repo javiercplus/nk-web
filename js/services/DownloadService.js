@@ -1,5 +1,5 @@
-const DOWNLOADS_XML_URL = 'https://nekovoid.vercel.app/data/downloads.xml';
-const FLAVORS_XML_URL = 'https://nekovoid.vercel.app/data/flavors.xml';
+const DOWNLOADS_XML_URL = 'https://nekovoid.vercel.app/dd/downloads.xml';
+const FLAVORS_XML_URL = 'https://nekovoid.vercel.app/dd/flavors.xml';
 
 export async function fetchDownloadsData() {
     try {
