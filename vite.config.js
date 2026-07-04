@@ -1,9 +1,9 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: './', // Use relative paths for static hosting
+  base: "./",
   build: {
-    outDir: 'dist',
+    outDir: "dist",
     emptyOutDir: true,
-  }
+  },
 });

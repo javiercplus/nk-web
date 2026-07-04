@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/javiercplus/nk-web#readme",
   "devDependencies": {
+    "prettier": "^3.9.4",
+    "strip-comments": "^2.0.1",
     "vite": "^8.0.16"
   }
 }

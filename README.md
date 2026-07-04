@@ -15,6 +15,7 @@ You need [Node.js](https://nodejs.org/) installed on your machine.
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/javiercplus/nk-web.git
    cd nk-web
@@ -28,25 +29,30 @@ You need [Node.js](https://nodejs.org/) installed on your machine.
 ### Development
 
 Run the Vite local development server:
+
 ```bash
 npm run dev
 ```
+
 Open [http://localhost:5173](http://localhost:5173) in your browser. Changes will hot-reload automatically.
 
 ### Production Build
 
 To compile and optimize the site for production:
+
 ```bash
 npm run build
 ```
+
 The built assets will be generated in the `dist/` folder. You can test the production build locally with:
+
 ```bash
 npm run preview
 ```
 
 ---
 
-##  Project Architecture
+## Project Architecture
 
 The project has been fully refactored from a monolithic codebase into a highly modular, clean design:
 
@@ -72,7 +78,6 @@ nk-web/
 We welcome all contributions!
 
 ---
-
 
 ## License
 
