@@ -31,6 +31,9 @@ main { margin-left: 0; width: 100%; height: calc(100vh - 80px); margin-top: 80px
         justify-content: flex-start;
         height: 48px;
         border-top: 1px solid var(--divider);
+        position: relative;
+        left: auto;
+        transform: none;
     }
     .nav-links::-webkit-scrollbar { height: 0; }
     .nav-link { padding: 0 16px; font-size: 0.8rem; white-space: nowrap; }

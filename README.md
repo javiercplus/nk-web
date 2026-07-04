@@ -66,23 +66,13 @@ nk-web/
 ├── index.html          # HTML5 layout
 └── vite.config.js      # Vite bundler configurations
 ```
-For more details, check out the specialized guides:
-- [Architecture Overview](docs/architecture.md)
-- [CSS Structure Guide](docs/css_structure.md)
-- [JavaScript Modules Guide](docs/js_modules.md)
-- [Translation & Localization System](docs/translations.md)
+
+## Contributing
+
+We welcome all contributions!
 
 ---
 
-
-##  Contributing
-
-We welcome all contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) to understand:
-- Commit message rules (Conventional Commits).
-- Naming conventions for files and classes.
-- Guidelines on using AI tools in this codebase.
-
----
 
 ## License
 

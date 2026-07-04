@@ -21,7 +21,7 @@
 }
 
 .edition-card {
-    background: transparent;
+    background: var(--bg-color);
     border-right: 1px solid var(--divider);
     border-bottom: 1px solid var(--divider);
     padding: 40px 24px;
@@ -34,7 +34,7 @@
 }
 
 .edition-card:hover {
-    background: rgba(141, 163, 131, 0.03);
+    background: var(--surface);
 }
 
 .edition-header {
@@ -190,14 +190,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(39, 46, 42, 0.5);
+    background: var(--bg-color);
     border: 1px solid var(--divider);
     padding: 24px 32px;
     transition: var(--transition-fast);
 }
 
 .edition-item:hover {
-    background: rgba(39, 46, 42, 0.8);
+    background: var(--surface);
     border-color: var(--selection);
 }
 
@@ -231,11 +231,13 @@
 .edition-badge-main {
     color: var(--green);
     border: 1px solid var(--green);
+    background: transparent;
 }
 
 .edition-badge-flavor {
-    color: var(--pink);
-    border: 1px solid var(--green);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    background: transparent;
 }
 
 .edition-actions {
@@ -285,11 +287,11 @@
 }
 
 .btn-edition.btn-disabled {
-    background: transparent;
+    background: rgba(127, 145, 147, 0.05);
     color: var(--comment);
-    border: 1px solid var(--divider);
+    border: 1px solid var(--divider-strong);
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .btn-edition.btn-disabled:hover {
@@ -810,40 +812,12 @@ body {
     align-items: center;
     text-align: center;
 }
-
-.team-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--green), var(--cyan));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--transition-smooth);
-}
-
-.team-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--green);
-}
-
-.team-card:hover::before {
-    transform: scaleX(1);
-}
-
 .team-avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     margin-bottom: 16px;
     border: 2px solid var(--divider);
-    transition: border-color var(--transition-smooth);
-}
-
-.team-card:hover .team-avatar {
-    border-color: var(--green);
 }
 
 .team-card h3 {

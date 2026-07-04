@@ -96,6 +96,7 @@ img {
         top: 60px !important;
         left: 0 !important;
         right: 0 !important;
+        transform: none !important;
         background: rgba(20, 25, 22, 0.98) !important;
         backdrop-filter: blur(10px) !important;
         flex-direction: column !important;
