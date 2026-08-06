@@ -7,38 +7,38 @@
       window.onload = function () {
         const comando = window.location.hash;
         const baseUrl =
-          "https://sourceforge.net/projects/neko-void/files/isos/";
+          "https://huggingface.co/datasets/arepaconcafe/untested-neko/resolve/main/";
 
         switch (comando) {
           case "#icejwm":
             window.location.replace(
-              baseUrl + "nekovoid-lts-icejwm-20260527.iso/download",
+              baseUrl + " nekovoid-lts-icejwm-20260805.iso",
             );
             break;
           case "#kde":
-            window.location.replace(baseUrl + "nekovoid-kde-20260622.iso/download");
+            window.location.replace(baseUrl + "nekovoid-kde-20260805.iso");
             break;
           case "#lxqt":
-            window.location.replace(baseUrl + "nekovoid-lxqt-20260527.iso/download");
+            window.location.replace(baseUrl + "nekovoid-lxqt-20260805.iso");
             break;
           case "#xorg":
             window.location.replace(
-              baseUrl + "nekovoid-rolling-xorg-20260613.iso/download",
+             "https://sourceforge.net/projects/neko-void/files/isos/nekovoid-rolling-xorg-20260613.iso/download",
             );
             break;
           case "#xlibre":
             window.location.replace(
-              baseUrl + "nekovoid-rolling-xlibre-20260622.iso/download",
+              "https://sourceforge.net/projects/neko-void/files/isos/nekovoid-rolling-xlibre-20260622.iso/download",
             );
             break;
           case "#niri":
-            window.location.replace(baseUrl + "nekovoid-niri-20260714.iso/download");
+            window.location.replace(baseUrl + "nekovoid-niri-20260805.iso");
             break;
           case "#xfce":
-            window.location.replace(baseUrl + "nekovoid-xfce-20260607.iso/download");
+            window.location.replace(baseUrl + "nekovoid-xfce-20260805.iso");
             break;
           case "#labwc":
-            window.location.replace(baseUrl + "nekovoid-labwc-20260622.iso/download");
+            window.location.replace(baseUrl + "nekovoid-labwc-20260805.iso");
             break;
           default:
             document.body.innerHTML =
